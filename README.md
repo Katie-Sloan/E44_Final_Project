@@ -2,7 +2,7 @@
 
 Our aim
 
-An app designed for restaurant customers to make orders from the browser or from their mobile. The customer can browse the menu, submit an order and pay for their food. After the order is submitted and paid for, the customer is presented with a screen showing a status update on the progress of the food, with a visual representation of progress. Different sounds also play at different stages of the process, to alert the customer to progress in preparing the order. 
+An app designed for restaurant customers to make orders from the browser or from their mobile. Inspired by Domino's Pizza, McDonald's and Just-Eat. The customer can browse the menu, submit an order and pay for their food. After the order is submitted and paid for, the customer is presented with a screen showing a status update on the progress of the food, with a visual representation of progress. Different sounds also play at different stages of the process, to alert the customer to progress in preparing the order. The app is designed for both sit-in and takeaway.
 
 Running instructions
 
