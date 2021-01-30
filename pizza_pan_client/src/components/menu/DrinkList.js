@@ -1,10 +1,11 @@
 import React from 'react'
+import DrinkDetail from './DrinkDetail';
 
 const DrinkList = () => {
     return (
-        <div>
-            
-        </div>
+        <ul>
+            <DrinkDetail />
+        </ul>
     )
 }
 

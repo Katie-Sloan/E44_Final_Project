@@ -1,10 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Login from './Login';
+import Basket from './Basket';
 
 const NavBar = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+          <Login />
+          <Basket />  
+        </>
     )
 }
 

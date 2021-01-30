@@ -1,10 +1,17 @@
 import React from 'react'
+import DrinkList from '../components/menu/DrinkList'
+import FoodList from '../components/menu/FoodList'
+import SitInOrTakeOutOption from '../components/menu/SitInOrTakeOutOption'
+import ViewBasket from '../components/menu/ViewBasket'
 
 const MenuContainer = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+          <FoodList />
+          <DrinkList />
+          <SitInOrTakeOutOption />
+          <ViewBasket />  
+        </>
     )
 }
 

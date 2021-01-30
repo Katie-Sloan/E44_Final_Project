@@ -1,10 +1,11 @@
 import React from 'react'
+import FoodDetail from './FoodDetail';
 
 const FoodList = () => {
     return (
-        <div>
-            
-        </div>
+        <ul>
+            <FoodDetail />
+        </ul>
     )
 }
 

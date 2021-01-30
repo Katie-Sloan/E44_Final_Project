@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import PlusMinus from './PlusMinus';
 
 const DrinkDetail = () => {
     return (
-        <div>
-            
-        </div>
+        <li>
+            <p>Drink Name</p>
+            <PlusMinus />
+        </li>
     )
 }
 
