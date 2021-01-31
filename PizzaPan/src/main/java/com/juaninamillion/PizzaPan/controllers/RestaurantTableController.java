@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.Response;
 import java.util.List;
 
 @RestController
@@ -22,10 +21,7 @@ public class RestaurantTableController {
         if (booked == false){
             return new ResponseEntity<>(restaurantTableRepository.findByBookedFalse(), HttpStatus.OK);
         }
-//        if (booked){
-            return new ResponseEntity<>(restaurantTableRepository.findByBookedTrue(), HttpStatus.OK);
-//        }
-//        return new ResponseEntity<>(restaurantTableRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(restaurantTableRepository.findByBookedTrue(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/restaurant_tables/{id}")
