@@ -13,7 +13,6 @@ public class FoodTestingTest {
         PizzaParser pizzaData = new PizzaParser();
 //
         System.out.println(pizzaData);
-        System.out.println(pizzaData.getResult());
 //        System.out.println(pizzaData.getResult().get(0).getClass());
 
     }

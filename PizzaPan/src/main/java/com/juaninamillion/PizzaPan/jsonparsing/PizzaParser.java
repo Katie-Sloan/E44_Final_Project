@@ -11,11 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PizzaParser {
-    List<T> result;
 
-    public List<T> getResult() {
-        return result;
-    }
 
     ObjectMapper mapper = new ObjectMapper();
 
