@@ -14,12 +14,14 @@ import java.util.Random;
 public class PizzaParser {
 
 
-    ObjectMapper mapper = new ObjectMapper();
+
 
 
 //    public CollectionType constructCollectionType(Class<? extends Collection> collectionClass, Class<?> elementClass) {
-    public List<Food> coolFunction() throws IOException, ClassNotFoundException {
+    public static List<Food> getPizzaInstances() throws IOException, ClassNotFoundException {
         Food food;
+        ObjectMapper mapper = new ObjectMapper();
+
         Class<?> foodInstance = Class.forName("com.juaninamillion.PizzaPan.models.Food");
         JavaType type = mapper.getTypeFactory().constructCollectionType(List.class, foodInstance);
         Object listOfFoodItems = mapper.readValue(new File("src/pizza.json"), type);
@@ -46,7 +48,7 @@ public class PizzaParser {
     }
 
     public PizzaParser() throws IOException, ClassNotFoundException {
-        List<Food> result = coolFunction();
+        List<Food> result = getPizzaInstances();
 
 
     }
