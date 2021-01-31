@@ -20,15 +20,15 @@ public class DataLoader implements ApplicationRunner {
 
 
     public void run(ApplicationArguments args){
-        Food pizza = new Food("Mozarella Pizza", 2.5f, 5, 20);
-        Food pizza1 = new Food("Pepperoni Pizza", 3.5f, 6, 25);
-        foodRepository.save(pizza);
-        foodRepository.save(pizza1);
-
-        Drink cocktail = new Drink("Bloody Mary", 3.7f);
-        Drink cocktail1 = new Drink("Cosmopolitan", 4);
-        drinkRepository.save(cocktail);
-        drinkRepository.save(cocktail1);
+////        Food pizza = new Food("Mozarella Pizza", 2.5f, 5, 20);
+////        Food pizza1 = new Food("Pepperoni Pizza", 3.5f, 6, 25);
+////        foodRepository.save(pizza);
+////        foodRepository.save(pizza1);
+//
+//        Drink cocktail = new Drink("Bloody Mary", 3.7f);
+//        Drink cocktail1 = new Drink("Cosmopolitan", 4);
+//        drinkRepository.save(cocktail);
+//        drinkRepository.save(cocktail1);
 
     }
 

@@ -3,7 +3,7 @@ package com.juaninamillion.PizzaPan.jsonparsing;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.juaninamillion.PizzaPan.models.FoodTestingClass;
+import com.juaninamillion.PizzaPan.models.Food;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,18 +17,27 @@ public class PizzaParser {
 
 
 //    public CollectionType constructCollectionType(Class<? extends Collection> collectionClass, Class<?> elementClass) {
-    public List<FoodTestingClass> coolFunction() throws IOException, ClassNotFoundException {
-        FoodTestingClass foodTestingClass;
-        Class<?> foodInstance = Class.forName("com.juaninamillion.PizzaPan.models.FoodTestingClass");
+    public void coolFunction() throws IOException, ClassNotFoundException {
+        Food food;
+        Class<?> foodInstance = Class.forName("com.juaninamillion.PizzaPan.models.Food");
         JavaType type = mapper.getTypeFactory().constructCollectionType(List.class, foodInstance);
         Object listOfFoodItems = mapper.readValue(new File("src/pizza.json"), type);
-        ArrayList<FoodTestingClass> newList = (ArrayList<FoodTestingClass>) listOfFoodItems;
-        System.out.println(newList.get(0).getImage());
-        return newList;
+//        ArrayList<Food> newList = (ArrayList<Food>) listOfFoodItems;
+//        System.out.println(newList.get(0).getImage());
+//
+//        for(Food item:newList){
+//        item.setCookingTime((int)Math.random()*10+10);
+//        }
+//        for(Food item:newList) {
+//            System.out.println(item.getCookingTime());
+//        }
+//        return newList;
     }
 
     public PizzaParser() throws IOException, ClassNotFoundException {
-        List<FoodTestingClass> result = coolFunction();
+//        List<Food> result = coolFunction();
+        coolFunction();
+
     }
     //    public FoodTestingClass getFood() {
 //        return food;

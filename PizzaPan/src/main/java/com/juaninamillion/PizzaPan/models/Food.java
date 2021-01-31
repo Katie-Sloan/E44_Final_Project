@@ -1,43 +1,57 @@
 package com.juaninamillion.PizzaPan.models;
 
 import javax.persistence.*;
-
-@Entity
-@Table(name ="foods")
+//@Entity
+//@Table(name ="foods")
 public class Food {
 
-    @Column(name ="name")
-    private String name;
+//    @Column(name ="name")
+    private String title;
 
-    @Column(name = "price")
+//    @Column(name = "price")
     private float price;
 
-    @Column(name = "prep_time")
+//    @Column(name = "prep_time")
     private int prepTime;
 
-    @Column(name = "cooking_time")
+//    @Column(name = "cooking_time")
     private int cookingTime;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name ="image")
+    private String image;
+
+//    @Column(name="restaurantChain")
+    private String restaurantChain;
+
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Food(String name, float price, int prepTime, int cookingTime) {
-        this.name = name;
+    public Food(String title, float price, int prepTime, int cookingTime, String image) {
+        this.title = title;
         this.price = price;
         this.prepTime = prepTime;
         this.cookingTime = cookingTime;
+        this.image = image;
     }
 
     public Food() {
     }
 
-    public String getName() {
-        return name;
+    public String getImage() {
+        return image;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public float getPrice() {
