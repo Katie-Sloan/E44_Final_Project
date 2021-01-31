@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class PizzaParser {
 
@@ -17,26 +18,36 @@ public class PizzaParser {
 
 
 //    public CollectionType constructCollectionType(Class<? extends Collection> collectionClass, Class<?> elementClass) {
-    public void coolFunction() throws IOException, ClassNotFoundException {
+    public List<Food> coolFunction() throws IOException, ClassNotFoundException {
         Food food;
         Class<?> foodInstance = Class.forName("com.juaninamillion.PizzaPan.models.Food");
         JavaType type = mapper.getTypeFactory().constructCollectionType(List.class, foodInstance);
         Object listOfFoodItems = mapper.readValue(new File("src/pizza.json"), type);
-//        ArrayList<Food> newList = (ArrayList<Food>) listOfFoodItems;
-//        System.out.println(newList.get(0).getImage());
-//
-//        for(Food item:newList){
-//        item.setCookingTime((int)Math.random()*10+10);
-//        }
-//        for(Food item:newList) {
-//            System.out.println(item.getCookingTime());
-//        }
-//        return newList;
+        ArrayList<Food> newList = (ArrayList<Food>) listOfFoodItems;
+        System.out.println(newList.get(0).getImage());
+
+
+        // gives a random cooking time of 10 - 25
+        for(Food item:newList){
+        item.setCookingTime(new Random().nextInt((10))+15);
+        }
+        for(Food item:newList) {
+            System.out.println(item.getCookingTime());
+        }
+
+        // gives a random prep time of 10 - 25
+        for(Food item:newList){
+            item.setPrepTime(new Random().nextInt((2))+4);
+        }
+        for(Food item:newList) {
+            System.out.println(item.getPrepTime());
+        }
+        return newList;
     }
 
     public PizzaParser() throws IOException, ClassNotFoundException {
-//        List<Food> result = coolFunction();
-        coolFunction();
+        List<Food> result = coolFunction();
+
 
     }
     //    public FoodTestingClass getFood() {

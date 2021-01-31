@@ -1,8 +1,12 @@
 package com.juaninamillion.PizzaPan.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 //@Entity
 //@Table(name ="foods")
+@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class Food {
 
 //    @Column(name ="name")
@@ -19,9 +23,6 @@ public class Food {
 
 //    @Column(name ="image")
     private String image;
-
-//    @Column(name="restaurantChain")
-    private String restaurantChain;
 
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
