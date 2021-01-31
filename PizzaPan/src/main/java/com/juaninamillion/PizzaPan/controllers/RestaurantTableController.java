@@ -19,12 +19,15 @@ public class RestaurantTableController {
 
     @GetMapping(value = "/restaurant_tables")
     public ResponseEntity<List<RestaurantTable>> getAllRestaurantTablesAndFilters(
-            @RequestParam(required = false, name = "booked") String booked
+            @RequestParam(required = false, name = "booked") boolean booked
     ) {
-        if (booked != null){
+        if (booked == false){
             return new ResponseEntity<>(restaurantTableRepository.findByBookedFalse(), HttpStatus.OK);
         }
-        return new ResponseEntity<>(restaurantTableRepository.findAll(), HttpStatus.OK);
+//        if (booked){
+            return new ResponseEntity<>(restaurantTableRepository.findByBookedTrue(), HttpStatus.OK);
+//        }
+//        return new ResponseEntity<>(restaurantTableRepository.findAll(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/restaurant_tables/{id}")

@@ -11,4 +11,5 @@ public interface RestaurantTableRepository extends JpaRepository<RestaurantTable
 
     List<RestaurantTable> findByBookedFalse();
 
+    List<RestaurantTable> findByBookedTrue();
 }
