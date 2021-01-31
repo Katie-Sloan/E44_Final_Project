@@ -1,10 +1,12 @@
-# Getting Started with Create React App
+# Pizza Pan App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Our aim
 
-## Available Scripts
+An app designed for restaurant customers to make orders from the browser or from their mobile. Inspired by Domino's Pizza, McDonald's and Just-Eat. The customer can browse the menu, submit an order and pay for their food. After the order is submitted and paid for, the customer is presented with a screen showing a status update on the progress of the food, with a visual representation of progress. Different sounds also play at different stages of the process, to alert the customer to progress in preparing the order. The app is designed for both sit-in and takeaway.
 
-In the project directory, you can run:
+Running instructions
+
+The app is based in React in the front end and Java/Spring in the back end. In order to get the app up and running in the browser, got to the pizza_pan_client directory and then run:
 
 ### `npm start`
 
