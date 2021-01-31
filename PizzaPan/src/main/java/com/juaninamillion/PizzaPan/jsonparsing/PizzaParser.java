@@ -1,41 +1,65 @@
 package com.juaninamillion.PizzaPan.jsonparsing;
 
 
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.CollectionType;
 import com.juaninamillion.PizzaPan.models.FoodTestingClass;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class PizzaParser {
+    List<T> result;
+
+    public List<T> getResult() {
+        return result;
+    }
 
     ObjectMapper mapper = new ObjectMapper();
 
-    FoodTestingClass food;
 
-    public FoodTestingClass getFood() {
-        return food;
+//    public CollectionType constructCollectionType(Class<? extends Collection> collectionClass, Class<?> elementClass) {
+    public List<FoodTestingClass> coolFunction() throws IOException, ClassNotFoundException {
+        FoodTestingClass foodTestingClass;
+        Class<?> foodInstance = Class.forName("com.juaninamillion.PizzaPan.models.FoodTestingClass");
+        JavaType type = mapper.getTypeFactory().constructCollectionType(List.class, foodInstance);
+        Object listOfFoodItems = mapper.readValue(new File("src/pizza.json"), type);
+        ArrayList<FoodTestingClass> newList = (ArrayList<FoodTestingClass>) listOfFoodItems;
+        System.out.println(newList.get(0).getImage());
+        return newList;
     }
 
-    private void startReading() {
-        try {
-            System.setProperty("http.agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.29 Safari/537.36");
-            food = mapper.readValue(new URL("https://api.spoonacular.com/food/menuItems/search?query=dominos%20pan%20pizza&apiKey=ff9b039211674a68a4864219f020d1ea&number=1"), FoodTestingClass.class);
-
-            System.out.println(food);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+    public PizzaParser() throws IOException, ClassNotFoundException {
+        List<T> result = coolFunction();
+    }
+    //    public FoodTestingClass getFood() {
+//        return food;
+//    }
+//
+//    private void startReading() {
+//        try {
+//
+//
+//            System.setProperty("http.agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.29 Safari/537.36");
+//            food = mapper.readValue(new File("src/pizza.json"), FoodTestingClass.class);
+//
+//            System.out.println(food);
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//    }
+//
+//
+//    public PizzaParser() throws ClassNotFoundException {
+//
+//        startReading();
 
     }
 
-
-    public PizzaParser() {
-
-        startReading();
-
-    }
-}

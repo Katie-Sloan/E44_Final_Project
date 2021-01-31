@@ -1,6 +1,5 @@
-{
-  "type": "menuItem",
-  "menuItems": [
+
+  [
     {
       "id": 333561,
       "title": "12\" Thin Crust American Legends Pizza, Wisconsin 6 Cheese",
@@ -46,10 +45,4 @@
       "image": "https://images.spoonacular.com/file/wximages/333626-312x231.jpg",
       "imageType": "jpg"
     }
-  ],
-  "offset": 0,
-  "number": 5,
-  "totalMenuItems": 450,
-  "processingTimeMs": 30,
-  "expires": 1612357762281
-}
+  ]
