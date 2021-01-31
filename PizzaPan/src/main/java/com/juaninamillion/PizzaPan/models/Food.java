@@ -3,29 +3,29 @@ package com.juaninamillion.PizzaPan.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-//@Entity
-//@Table(name ="foods")
+@Entity
+@Table(name ="foods")
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Food {
 
-//    @Column(name ="name")
+    @Column(name ="name")
     private String title;
 
-//    @Column(name = "price")
+    @Column(name = "price")
     private float price;
 
-//    @Column(name = "prep_time")
+    @Column(name = "prep_time")
     private int prepTime;
 
-//    @Column(name = "cooking_time")
+    @Column(name = "cooking_time")
     private int cookingTime;
 
-//    @Column(name ="image")
+    @Column(name ="image")
     private String image;
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public Food(String title, float price, int prepTime, int cookingTime, String image) {
