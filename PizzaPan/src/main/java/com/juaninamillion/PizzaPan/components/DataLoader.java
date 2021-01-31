@@ -37,9 +37,16 @@ public class DataLoader implements ApplicationRunner {
         drinkRepository.save(cocktail);
         drinkRepository.save(cocktail1);
 
+        User john = new User("John", 3, "john@anything.com", "batman");
+        User juan = new User("Juan", 2, "juan@anything.com", "banana");
+        userRepository.save(john);
+        userRepository.save(juan);
+
         RestaurantTable table = new RestaurantTable(1, 4);
         RestaurantTable table1 = new RestaurantTable(2, 2);
+        table.setUser(john);
         restaurantTableRepository.save(table);
+        table.setUser(juan);
         table1.setBooked(true);
         restaurantTableRepository.save(table1);
 
@@ -48,11 +55,6 @@ public class DataLoader implements ApplicationRunner {
         parkingSpaceRepository.save(parkingSpace);
         parkingSpace1.setBooked(true);
         parkingSpaceRepository.save(parkingSpace1);
-
-        User john = new User("John", 3, "john@anything.com", "batman");
-        User juan = new User("Juan", 6, "juan@anything.com", "banana");
-        userRepository.save(john);
-        userRepository.save(juan);
 
     }
 

@@ -21,6 +21,9 @@ public class User {
 //    @Column(name = "order")
 //    list of orders to be added here
 
+    @OneToOne(mappedBy = "user")
+    private RestaurantTable restaurantTable;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,6 +33,7 @@ public class User {
         this.sizeOfParty = sizeOfParty;
         this.emailAddress = emailAddress;
         this.password = password;
+        this.restaurantTable = new RestaurantTable();
     }
 
     public User(){
@@ -74,5 +78,13 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public RestaurantTable getRestaurantTable() {
+        return restaurantTable;
+    }
+
+    public void setRestaurantTable(RestaurantTable restaurantTable) {
+        this.restaurantTable = restaurantTable;
     }
 }
