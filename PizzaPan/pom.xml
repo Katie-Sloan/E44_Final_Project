@@ -15,8 +15,7 @@
 	<description>Juaninamillion project for Food Ordering</description>
 	<properties>
 		<java.version>1.8</java.version>
-		<jackson.version>2.12.0</jackson.version>
-		<jackson-annotations-version>2.10.1</jackson-annotations-version>
+		<jackson.version>2.12.1</jackson.version>
 	</properties>
 	<dependencies>
 
