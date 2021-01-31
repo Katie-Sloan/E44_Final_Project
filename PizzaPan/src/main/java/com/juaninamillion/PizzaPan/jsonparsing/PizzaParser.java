@@ -3,13 +3,11 @@ package com.juaninamillion.PizzaPan.jsonparsing;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.CollectionType;
 import com.juaninamillion.PizzaPan.models.FoodTestingClass;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class PizzaParser {
@@ -34,7 +32,7 @@ public class PizzaParser {
     }
 
     public PizzaParser() throws IOException, ClassNotFoundException {
-        List<T> result = coolFunction();
+        List<FoodTestingClass> result = coolFunction();
     }
     //    public FoodTestingClass getFood() {
 //        return food;
