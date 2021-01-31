@@ -1,13 +1,7 @@
 package com.juaninamillion.PizzaPan.components;
 
-import com.juaninamillion.PizzaPan.models.Drink;
-import com.juaninamillion.PizzaPan.models.Food;
-import com.juaninamillion.PizzaPan.models.ParkingSpace;
-import com.juaninamillion.PizzaPan.models.RestaurantTable;
-import com.juaninamillion.PizzaPan.repositories.DrinkRepository;
-import com.juaninamillion.PizzaPan.repositories.FoodRepository;
-import com.juaninamillion.PizzaPan.repositories.ParkingSpaceRepository;
-import com.juaninamillion.PizzaPan.repositories.RestaurantTableRepository;
+import com.juaninamillion.PizzaPan.models.*;
+import com.juaninamillion.PizzaPan.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -27,6 +21,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     ParkingSpaceRepository parkingSpaceRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
 
     public void run(ApplicationArguments args){
@@ -51,6 +48,11 @@ public class DataLoader implements ApplicationRunner {
         parkingSpaceRepository.save(parkingSpace);
         parkingSpace1.setBooked(true);
         parkingSpaceRepository.save(parkingSpace1);
+
+        User john = new User("John", 3, "john@anything.com", "batman");
+        User juan = new User("Juan", 6, "juan@anything.com", "banana");
+        userRepository.save(john);
+        userRepository.save(juan);
 
     }
 
