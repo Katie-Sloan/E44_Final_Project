@@ -6,6 +6,7 @@ import SitInOrTakeOutOption from '../components/menu/SitInOrTakeOutOption';
 import ViewBasket from '../components/menu/ViewBasket';
 import Request from '../helpers/request'
 
+
 const MenuContainer = () => {
   const [foods, setFoods] = useState([]);
   const [drinks, setDrinks] = useState([]);
@@ -46,7 +47,6 @@ const MenuContainer = () => {
    return (
   
         <>
-
           <FoodList foods={foods}/>
           <DrinkList drinks={drinks}/>
           <SitInOrTakeOutOption />

@@ -9,6 +9,7 @@ const DrinkDetail = ({drink}) => {
     return (
         <li>
             <p>{drink.title} {drink.price}</p>
+        
             <PlusMinus />
         </li>
     )
