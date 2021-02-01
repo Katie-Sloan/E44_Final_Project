@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -66,10 +67,10 @@ public class DataLoader implements ApplicationRunner {
 
         Order order3 = new Order(3, 4.50f, john);
         Order order4 = new Order(4, 5.75f, juan);
-        order3.addFood(foods[0]);
-        order3.addDrink(drinks[0]);
-        order4.addFood(foods[1]);
-        order4.addDrink(drinks[1]);
+        order3.addFood(foodRepository.findById(1L).get());
+        order3.addDrink(drinkRepository.findById(1L).get());
+        order4.addFood(foodRepository.findById(2L).get());
+        order4.addDrink(drinkRepository.findById(2L).get());
         orderRepository.save(order3);
         orderRepository.save(order4);
     }
