@@ -60,11 +60,10 @@ public class DataLoader implements ApplicationRunner {
 
         Order order3 = new Order(3, 4.50f, john);
         Order order4 = new Order(4, 5.75f, juan);
-        pizza.setOrder(order3);
-        pizza1.setOrder(order4);
-//        order3.addFood(pizza);
-        cocktail.setOrder(order3);
-        cocktail1.setOrder(order4);
+        order3.addFood(pizza);
+        order3.addDrink(cocktail);
+        order4.addFood(pizza1);
+        order4.addDrink(cocktail1);
         orderRepository.save(order3);
         orderRepository.save(order4);
         foodRepository.save(pizza);

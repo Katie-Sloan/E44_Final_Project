@@ -1,11 +1,10 @@
 package com.juaninamillion.PizzaPan.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,12 +17,24 @@ public class Order {
     @Column(name = "total_price")
     private float totalPrice;
 
-    @JsonIgnoreProperties({"order"})
-    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
+    @ManyToMany
+    @JsonIgnoreProperties(value = {"orders"})
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+        name = "foods_orders",
+        joinColumns = { @JoinColumn(name = "order_id") },
+        inverseJoinColumns = { @JoinColumn(name = "food_id") }
+    )
     private List<Food> foods;
 
-    @JsonIgnoreProperties({"order"})
-    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
+    @ManyToMany
+    @JsonIgnoreProperties(value = {"orders"})
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "drinks_orders",
+            joinColumns = { @JoinColumn(name = "order_id") },
+            inverseJoinColumns = { @JoinColumn(name = "drink_id")}
+    )
     private List<Drink> drinks;
 
     @JsonIgnoreProperties({"orders"})
@@ -39,7 +50,8 @@ public class Order {
         this.orderNumber = orderNumber;
         this.totalPrice = totalPrice;
         this.user = user;
-
+        this.foods = new ArrayList<>();
+        this.drinks = new ArrayList<>();
     }
 
     public Order() {
@@ -96,5 +108,9 @@ public class Order {
 
     public void addFood(Food food){
         this.foods.add(food);
+    }
+
+    public void addDrink(Drink drink) {
+        this.drinks.add(drink);
     }
 }

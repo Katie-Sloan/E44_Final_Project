@@ -3,15 +3,18 @@ package com.juaninamillion.PizzaPan.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name ="foods")
 public class Food {
 
-    @Column(name ="name")
-    private String name;
+    @Column(name ="title")
+    private String title;
 
     @Column(name = "price")
     private float price;
@@ -22,10 +25,15 @@ public class Food {
     @Column(name = "cooking_time")
     private int cookingTime;
 
+    @ManyToMany
     @JsonIgnoreProperties({"foods"})
-    @ManyToOne
-    @JoinColumn(name = "order_id", nullable = true)
-    private Order order;
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "foods_orders",
+            joinColumns = { @JoinColumn(name = "food_id") },
+            inverseJoinColumns = { @JoinColumn(name = "order_id") }
+    )
+    private List<Order> orders;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,24 +41,24 @@ public class Food {
 
 
 
-    public Food(String name, float price, int prepTime, int cookingTime) {
-        this.name = name;
+    public Food(String title, float price, int prepTime, int cookingTime) {
+        this.title = title;
         this.price = price;
         this.prepTime = prepTime;
         this.cookingTime = cookingTime;
-        this.order = null;
+        this.orders = new ArrayList<>();
 
     }
 
     public Food() {
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public float getPrice() {
@@ -85,12 +93,11 @@ public class Food {
         this.id = id;
     }
 
-    public Order getOrder() {
-        return order;
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
-
 }

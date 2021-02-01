@@ -3,44 +3,52 @@ package com.juaninamillion.PizzaPan.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "drinks")
 public class Drink {
 
-    @Column(name= "name")
-    private String name;
+    @Column(name= "title")
+    private String title;
 
     @Column(name = "price")
     private float price;
 
+    @ManyToMany
     @JsonIgnoreProperties({"drinks"})
-    @ManyToOne
-    @JoinColumn(name = "order_id", nullable = true)
-    private Order order;
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "drinks_orders",
+            joinColumns = { @JoinColumn(name = "drink_id") },
+            inverseJoinColumns = { @JoinColumn(name = "order_id") }
+    )
+    private List<Order> orders;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Drink(String name, float price) {
-        this.name = name;
+    public Drink(String title, float price) {
+        this.title = title;
         this.price = price;
-        this.order = null;
+        this.orders = new ArrayList<>();
 
     }
 
     public Drink() {
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public float getPrice() {
@@ -59,11 +67,11 @@ public class Drink {
         this.id = id;
     }
 
-    public Order getOrder() {
-        return order;
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }
