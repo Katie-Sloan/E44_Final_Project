@@ -33,12 +33,17 @@ public class User {
     @OneToOne(mappedBy = "user")
     private RestaurantTable restaurantTable;
 
+    @JsonBackReference
+    @OneToOne(mappedBy = "user")
+    private ParkingSpace parkingSpace;
+
     public User(String name, int sizeOfParty, String emailAddress, String password) {
         this.name = name;
         this.sizeOfParty = sizeOfParty;
         this.emailAddress = emailAddress;
         this.password = password;
         this.restaurantTable = null;
+        this.parkingSpace = null;
     }
 
     public User(){
@@ -92,4 +97,13 @@ public class User {
     public void setRestaurantTable(RestaurantTable restaurantTable) {
         this.restaurantTable = restaurantTable;
     }
+
+    public ParkingSpace getParkingSpace(){
+        return parkingSpace;
+    }
+
+    public void setParkingSpace(ParkingSpace parkingSpace){
+        this.parkingSpace = parkingSpace;
+    }
+
 }

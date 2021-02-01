@@ -50,8 +50,8 @@ public class DataLoader implements ApplicationRunner {
 
         ParkingSpace parkingSpace = new ParkingSpace(1);
         ParkingSpace parkingSpace1 = new ParkingSpace(2);
+        parkingSpace.setUser(juan);
         parkingSpaceRepository.save(parkingSpace);
-        parkingSpace1.setBooked(true);
         parkingSpaceRepository.save(parkingSpace1);
 
     }

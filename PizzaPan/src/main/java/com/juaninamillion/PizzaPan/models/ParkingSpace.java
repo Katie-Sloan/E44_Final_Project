@@ -1,5 +1,7 @@
 package com.juaninamillion.PizzaPan.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,12 +14,20 @@ public class ParkingSpace {
     @Column(name= "booked")
     private boolean booked;
 
+    @JsonManagedReference
+    @OneToOne(optional = true)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = true)
+    private User user;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     public ParkingSpace(int numberOfParkingSpace) {
+
         this.numberOfParkingSpace = numberOfParkingSpace;
+        this.user = null;
     }
 
     public ParkingSpace() {
@@ -46,5 +56,14 @@ public class ParkingSpace {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+        setBooked(true);
     }
 }
