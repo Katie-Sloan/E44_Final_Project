@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "drinks")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Drink {
 
     @Column(name= "name")
