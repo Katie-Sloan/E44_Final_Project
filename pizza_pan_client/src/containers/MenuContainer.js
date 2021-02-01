@@ -8,7 +8,7 @@ import Request from '../helpers/request'
 
 const MenuContainer = () => {
   const [foods, setFoods] = useState([]);
-  const [drinks, setDrinks] useState([]);
+  const [drinks, setDrinks] = useState([]);
 
   const requestAll = function(){
     const request = new Request();
@@ -47,7 +47,7 @@ const MenuContainer = () => {
   
         <>
 
-          <FoodList food={foods}/>
+          <FoodList foods={foods}/>
           <DrinkList />
           <SitInOrTakeOutOption />
           <ViewBasket />  
