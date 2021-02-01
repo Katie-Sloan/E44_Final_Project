@@ -1,6 +1,13 @@
 package com.juaninamillion.PizzaPan.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.Cascade;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 @Entity
@@ -21,6 +28,16 @@ public class Food {
     @Column(name = "cooking_time")
     private int cookingTime;
 
+    @ManyToMany
+    @JsonIgnoreProperties({"foods"})
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "foods_orders",
+            joinColumns = { @JoinColumn(name = "food_id") },
+            inverseJoinColumns = { @JoinColumn(name = "order_id") }
+    )
+    private List<Order> orders;
+    
     @Column(name ="image")
     private String image;
 
@@ -33,6 +50,7 @@ public class Food {
         this.price = price;
         this.prepTime = prepTime;
         this.cookingTime = cookingTime;
+        this.orders = new ArrayList<>();
         this.image = image;
     }
 
@@ -85,5 +103,13 @@ public class Food {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }

@@ -1,17 +1,18 @@
 package com.juaninamillion.PizzaPan.components;
 
+import com.juaninamillion.PizzaPan.models.*;
+import com.juaninamillion.PizzaPan.repositories.*;
+
 import com.juaninamillion.PizzaPan.jsonparsing.jsonParser;
-import com.juaninamillion.PizzaPan.models.Drink;
-import com.juaninamillion.PizzaPan.models.Food;
-import com.juaninamillion.PizzaPan.repositories.DrinkRepository;
-import com.juaninamillion.PizzaPan.repositories.FoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -21,6 +22,18 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     FoodRepository foodRepository;
+
+    @Autowired
+    RestaurantTableRepository restaurantTableRepository;
+
+    @Autowired
+    ParkingSpaceRepository parkingSpaceRepository;
+
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    OrderRepository orderRepository;
 
 
     public void run(ApplicationArguments args) throws IOException, ClassNotFoundException {
@@ -34,7 +47,32 @@ public class DataLoader implements ApplicationRunner {
         for(Drink drink: drinks){
             drinkRepository.save(drink);
         }
-    }
 
+        User john = new User("John", 3, "john@anything.com", "batman");
+        User juan = new User("Juan", 2, "juan@anything.com", "banana");
+        userRepository.save(john);
+        userRepository.save(juan);
+
+        RestaurantTable table = new RestaurantTable(1, 4);
+        RestaurantTable table1 = new RestaurantTable(2, 2);
+        table.setUser(john);
+        restaurantTableRepository.save(table);
+        restaurantTableRepository.save(table1);
+    
+        ParkingSpace parkingSpace = new ParkingSpace(1);
+        ParkingSpace parkingSpace1 = new ParkingSpace(2);
+        parkingSpace.setUser(juan);
+        parkingSpaceRepository.save(parkingSpace);
+        parkingSpaceRepository.save(parkingSpace1);
+
+        Order order3 = new Order(3, 4.50f, john);
+        Order order4 = new Order(4, 5.75f, juan);
+        order3.addFood(foodRepository.findById(1L).get());
+        order3.addDrink(drinkRepository.findById(1L).get());
+        order4.addFood(foodRepository.findById(2L).get());
+        order4.addDrink(drinkRepository.findById(2L).get());
+        orderRepository.save(order3);
+        orderRepository.save(order4);
+    }
 
 }
