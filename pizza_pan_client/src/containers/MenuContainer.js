@@ -48,7 +48,7 @@ const MenuContainer = () => {
         <>
 
           <FoodList foods={foods}/>
-          <DrinkList />
+          <DrinkList drinks={drinks}/>
           <SitInOrTakeOutOption />
           <ViewBasket />  
         </>

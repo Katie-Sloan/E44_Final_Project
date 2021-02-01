@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Drink {
 
     @Column(name= "name")
-    private String name;
+    private String title;
 
     @Column(name = "price")
     private float price;
@@ -19,8 +19,8 @@ public class Drink {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Drink(String name, float price) {
-        this.name = name;
+    public Drink(String title, float price) {
+        this.title = title;
         this.price = price;
 
     }
@@ -28,12 +28,12 @@ public class Drink {
     public Drink() {
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public float getPrice() {

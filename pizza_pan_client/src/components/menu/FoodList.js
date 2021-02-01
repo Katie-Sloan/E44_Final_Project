@@ -4,7 +4,7 @@ import FoodDetail from './FoodDetail';
 const FoodList = (props) => {
 
     if (props.foods.length === 0){
-        return (<p>Loading...</p>)
+        return (<p>Loading food...</p>)
     }
 
     const foods = props.foods.map((food, index) => {
