@@ -8,7 +8,9 @@ const DrinkDetail = ({drink}) => {
     }
     return (
         <li>
+
             <p>{drink.title} {drink.price}</p>
+            <img src={drink.image} className="menu-item-image"></img>
         
             <PlusMinus />
         </li>
