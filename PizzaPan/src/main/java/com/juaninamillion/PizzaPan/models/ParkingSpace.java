@@ -14,7 +14,7 @@ public class ParkingSpace {
     @Column(name= "booked")
     private boolean booked;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "parking_space")
     @OneToOne(optional = true)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = true)
     private User user;

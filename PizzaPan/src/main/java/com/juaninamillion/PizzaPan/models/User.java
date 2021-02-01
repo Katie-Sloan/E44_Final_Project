@@ -29,11 +29,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonBackReference
+    @JsonBackReference(value = "restaurant_table")
     @OneToOne(mappedBy = "user")
     private RestaurantTable restaurantTable;
 
-    @JsonBackReference
+    @JsonBackReference(value = "parking_space")
     @OneToOne(mappedBy = "user")
     private ParkingSpace parkingSpace;
 

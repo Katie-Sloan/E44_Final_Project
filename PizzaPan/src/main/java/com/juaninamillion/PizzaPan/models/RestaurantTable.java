@@ -19,7 +19,7 @@ public class RestaurantTable {
     @Column(name= "booked")
     private boolean booked;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "restaurant_table")
     @OneToOne(optional = true)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = true)
     private User user;
