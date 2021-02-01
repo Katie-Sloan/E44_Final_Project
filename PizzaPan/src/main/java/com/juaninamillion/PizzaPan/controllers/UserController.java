@@ -29,6 +29,13 @@ public class UserController {
         userRepository.save(user);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
+    @PostMapping(value = "/users")
+    public ResponseEntity<User> postUser(@RequestBody User user) {
+        userRepository.save(user);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
+    }
+
+
 
 //    TODO: add route to get order number
 
