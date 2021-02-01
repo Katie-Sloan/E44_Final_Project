@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -37,6 +38,10 @@ public class User {
     @OneToOne(mappedBy = "user")
     private ParkingSpace parkingSpace;
 
+    @JsonBackReference(value = "order")
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Order> orders;
+
     public User(String name, int sizeOfParty, String emailAddress, String password) {
         this.name = name;
         this.sizeOfParty = sizeOfParty;
@@ -44,6 +49,7 @@ public class User {
         this.password = password;
         this.restaurantTable = null;
         this.parkingSpace = null;
+
     }
 
     public User(){
@@ -106,4 +112,11 @@ public class User {
         this.parkingSpace = parkingSpace;
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
 }

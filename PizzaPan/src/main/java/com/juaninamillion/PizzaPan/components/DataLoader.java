@@ -5,6 +5,7 @@ import com.juaninamillion.PizzaPan.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -24,6 +25,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    OrderRepository orderRepository;
 
 
     public void run(ApplicationArguments args){
@@ -53,6 +57,12 @@ public class DataLoader implements ApplicationRunner {
         parkingSpace.setUser(juan);
         parkingSpaceRepository.save(parkingSpace);
         parkingSpaceRepository.save(parkingSpace1);
+
+        Order order3 = new Order(3, 4.50f, john);
+        Order order4 = new Order(4, 5.75f, juan);
+        orderRepository.save(order3);
+        orderRepository.save(order4);
+
 
     }
 
