@@ -1,0 +1,48 @@
+
+  [
+    {
+      "id": 333561,
+      "title": "12\" Thin Crust American Legends Pizza, Wisconsin 6 Cheese",
+      "restaurantChain": "Dominos",
+      "servingSize": "0.25 pizza",
+      "readableServingSize": "0.25pizza",
+      "image": "https://images.spoonacular.com/file/wximages/333561-312x231.jpg",
+      "imageType": "jpg"
+    },
+    {
+      "id": 237390,
+      "title": "Chicken Bacon Ranch Sandwich",
+      "restaurantChain": "Dominos",
+      "servingSize": "315g",
+      "readableServingSize": "11 oz",
+      "image": "https://images.spoonacular.com/file/wximages/237390-312x231.jpg",
+      "imageType": "jpg"
+    },
+    {
+      "id": 333627,
+      "title": "12\" Hand Tossed Feast Pizza, Ultimate Pepperoni",
+      "restaurantChain": "Dominos",
+      "servingSize": "1 slice",
+      "readableServingSize": "1 slice",
+      "image": "https://images.spoonacular.com/file/wximages/333627-312x231.jpg",
+      "imageType": "jpg"
+    },
+    {
+      "id": 237391,
+      "title": "Chicken Parmesan Sandwich",
+      "restaurantChain": "Dominos",
+      "servingSize": "322g",
+      "readableServingSize": "11 oz",
+      "image": "https://images.spoonacular.com/file/wximages/237391-312x231.jpg",
+      "imageType": "jpg"
+    },
+    {
+      "id": 333626,
+      "title": "12\" Hand Tossed Feast Pizza, ExtravaganZZa",
+      "restaurantChain": "Dominos",
+      "servingSize": "1 slice",
+      "readableServingSize": "1 slice",
+      "image": "https://images.spoonacular.com/file/wximages/333626-312x231.jpg",
+      "imageType": "jpg"
+    }
+  ]

@@ -9,11 +9,14 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.*;
 @Entity
 @Table(name ="foods")
+@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class Food {
 
-    @Column(name ="title")
+    @Column(name ="name")
     private String title;
 
     @Column(name = "price")
@@ -34,23 +37,32 @@ public class Food {
             inverseJoinColumns = { @JoinColumn(name = "order_id") }
     )
     private List<Order> orders;
+    
+    @Column(name ="image")
+    private String image;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
-
-    public Food(String title, float price, int prepTime, int cookingTime) {
+    public Food(String title, float price, int prepTime, int cookingTime, String image) {
         this.title = title;
         this.price = price;
         this.prepTime = prepTime;
         this.cookingTime = cookingTime;
         this.orders = new ArrayList<>();
-
+        this.image = image;
     }
 
     public Food() {
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getTitle() {

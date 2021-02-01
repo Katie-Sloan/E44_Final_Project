@@ -1,0 +1,47 @@
+[
+  {
+  "id": 384569,
+  "title": "Apple Juice",
+  "restaurantChain": "Juice It Up!",
+  "servingSize": "12oz",
+  "readableServingSize": "12 fl oz",
+  "image": "https://images.spoonacular.com/file/wximages/384569-312x231.jpg",
+  "imageType": "jpg"
+},
+  {
+    "id": 384572,
+    "title": "Carrot Juice",
+    "restaurantChain": "Juice It Up!",
+    "servingSize": "12oz",
+    "readableServingSize": "12 fl oz",
+    "image": "https://images.spoonacular.com/file/wximages/384572-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 384573,
+    "title": "Orange Juice",
+    "restaurantChain": "Juice It Up!",
+    "servingSize": "12oz",
+    "readableServingSize": "12 fl oz",
+    "image": "https://images.spoonacular.com/file/wximages/384573-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 384582,
+    "title": "Awakener Juice Blend",
+    "restaurantChain": "Juice It Up!",
+    "servingSize": "12oz",
+    "readableServingSize": "12 fl oz",
+    "image": "https://images.spoonacular.com/file/wximages/384582-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 384584,
+    "title": "Refresher Juice Blend",
+    "restaurantChain": "Juice It Up!",
+    "servingSize": "12oz",
+    "readableServingSize": "12 fl oz",
+    "image": "https://images.spoonacular.com/file/wximages/384584-312x231.jpg",
+    "imageType": "jpg"
+  }
+]
