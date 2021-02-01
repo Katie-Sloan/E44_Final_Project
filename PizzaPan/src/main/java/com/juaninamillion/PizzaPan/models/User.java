@@ -1,5 +1,9 @@
 package com.juaninamillion.PizzaPan.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -21,19 +25,20 @@ public class User {
 //    @Column(name = "order")
 //    list of orders to be added here
 
-    @OneToOne(mappedBy = "user")
-    private RestaurantTable restaurantTable;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @JsonBackReference
+    @OneToOne(mappedBy = "user")
+    private RestaurantTable restaurantTable;
 
     public User(String name, int sizeOfParty, String emailAddress, String password) {
         this.name = name;
         this.sizeOfParty = sizeOfParty;
         this.emailAddress = emailAddress;
         this.password = password;
-        this.restaurantTable = new RestaurantTable();
+        this.restaurantTable = null;
     }
 
     public User(){

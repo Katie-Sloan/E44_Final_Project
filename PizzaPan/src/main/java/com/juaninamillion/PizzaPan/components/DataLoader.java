@@ -46,8 +46,6 @@ public class DataLoader implements ApplicationRunner {
         RestaurantTable table1 = new RestaurantTable(2, 2);
         table.setUser(john);
         restaurantTableRepository.save(table);
-        table.setUser(juan);
-        table1.setBooked(true);
         restaurantTableRepository.save(table1);
 
         ParkingSpace parkingSpace = new ParkingSpace(1);

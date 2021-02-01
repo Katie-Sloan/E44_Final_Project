@@ -1,6 +1,8 @@
 package com.juaninamillion.PizzaPan.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
@@ -17,10 +19,9 @@ public class RestaurantTable {
     @Column(name= "booked")
     private boolean booked;
 
-    @OneToOne(optional = false)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-//    @JsonIgnoreProperties({"user"})
-//    @Column(name= "user")
+    @JsonManagedReference
+    @OneToOne(optional = true)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = true)
     private User user;
 
     @Id
@@ -31,7 +32,7 @@ public class RestaurantTable {
         this.numberOfTable = numberOfTable;
         this.tableSize = tableSize;
         this.booked = false;
-        this.user = new User();
+        this.user = null;
     }
 
     public RestaurantTable() {
@@ -76,6 +77,7 @@ public class RestaurantTable {
 
     public void setUser(User user) {
         this.user = user;
+        setBooked(true);
     }
 
 }
