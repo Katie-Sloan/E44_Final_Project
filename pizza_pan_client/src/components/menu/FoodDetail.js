@@ -1,10 +1,14 @@
 import React from 'react'
 import PlusMinus from './PlusMinus'
 
-const FoodDetail = () => {
+const FoodDetail = ({food}) => {
+
+    if (!food){
+        return "Loading..."
+    }
     return (
         <li>
-            <p>Food Name</p>
+            <p>{food.title} {food.price}</p>
             <PlusMinus />
         </li>
     )

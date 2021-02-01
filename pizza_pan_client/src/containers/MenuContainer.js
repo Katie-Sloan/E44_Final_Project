@@ -7,7 +7,7 @@ import ViewBasket from '../components/menu/ViewBasket'
 const MenuContainer = () => {
     return (
         <>
-          <FoodList />
+          <FoodList foods={this.state.foods}/>
           <DrinkList />
           <SitInOrTakeOutOption />
           <ViewBasket />  
