@@ -1,6 +1,6 @@
 import React from 'react';
 import PlusMinus from './PlusMinus';
-import '/Users/codeclanstudent/Desktop/codeclan_work/ordering_app/E44_Final_Project/E44_Final_Project/pizza_pan_client/src/style/menu.css';
+import '../../style/menu.css';
 
 const FoodDetail = ({food}) => {
 
