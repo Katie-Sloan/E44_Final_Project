@@ -15,9 +15,12 @@ const DrinkList = (props) => {
         )
     })
     return (
+        <>
+        <h2>Drinks</h2>
         <ul className="component-list">
             {drinks}
         </ul>
+        </>
     )
 }
 
