@@ -12,7 +12,7 @@ const FoodList = (props) => {
 
         return (
             <>
-            <h2>Food</h2>
+            
             <ul>
                 <FoodDetail food = {food} />
             </ul>
@@ -22,7 +22,7 @@ const FoodList = (props) => {
 
     return (
         <>
-        
+        <h2>Food</h2>
         <ul className="component-list">
             {foods}
         </ul>
