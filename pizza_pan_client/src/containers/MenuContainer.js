@@ -28,7 +28,7 @@ const MenuContainer = () => {
     requestAll()
   }, [])
 
-  const findPirateById = function(id){
+  const findFoodById = function(id){
     return foods.find((food) => {
       return food.id === parseInt(id);
     })

@@ -2,7 +2,7 @@ import React from 'react'
 
 const AccountDetails = () => {
     return (
-        null
+        <p>This is where the account form goes</p>
     )
 }
 
