@@ -10,6 +10,7 @@ import Request from '../helpers/request'
 const MenuContainer = () => {
   const [foods, setFoods] = useState([]);
   const [drinks, setDrinks] = useState([]);
+  const [orderItems, setOrderItems] = useState([]);
 
   const requestAll = function(){
     const request = new Request();
@@ -41,13 +42,29 @@ const MenuContainer = () => {
     .then(()=> window.location ="/foods")
   }
 
+  const addToFoodCount = function(){
+    console.log("got this far");      
+    
+  }
+
+  const subtractFromFoodCount = function(){
+    console.log("got this far");
+  }
+
+  const object = [foods, addToFoodCount, subtractFromFoodCount]
+
   if(!foods){
     return null
   }
    return (
   
         <>
-          <FoodList foods={foods}/>
+          <FoodList 
+          object={object}
+          // foods={foods}
+          // addToFoodCount={addToFoodCount}
+          // subtractFromFoodCount={subtractFromFoodCount}
+          />
           <DrinkList drinks={drinks}/>
           <SitInOrTakeOutOption />
           <ViewBasket />  
