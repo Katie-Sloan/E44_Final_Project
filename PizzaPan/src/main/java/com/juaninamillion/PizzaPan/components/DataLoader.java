@@ -7,12 +7,10 @@ import com.juaninamillion.PizzaPan.jsonparsing.jsonParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -38,14 +36,14 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) throws IOException, ClassNotFoundException {
 
-        List<Food> foods = jsonParser.getFoodInstances("com.juaninamillion.PizzaPan.models.Food", "src/pizza.json" );
-        for(Food food: foods){
-            foodRepository.save(food);
-        }
-
         List<Drink> drinks = (List<Drink>) jsonParser.getDrinkInstances("com.juaninamillion.PizzaPan.models.Drink", "src/juice.json");
         for(Drink drink: drinks){
             drinkRepository.save(drink);
+        }
+
+        List<Food> foods = jsonParser.getFoodInstances("com.juaninamillion.PizzaPan.models.Food", "src/pizza.json" );
+        for(Food food: foods){
+            foodRepository.save(food);
         }
 
         User john = new User("John", 3, "john@anything.com", "batman");

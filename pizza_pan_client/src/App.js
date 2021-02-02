@@ -1,8 +1,6 @@
 
 import './App.css';
-import LoginButton from './components/header/LoginButton';
-import LogoutButton from './components/header/LogoutButton';
-import Profile from './components/header/Profile';
+import Profile from './components/Profile';
 import MainContainer from './containers/MainContainer';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -13,15 +11,9 @@ function App() {
   return (
     <>
     <AppHeader />
-      <div >
-      <LoginButton />
-      <LogoutButton />
-      </div>
-      <div >
-      {/* <Menu /> */}
-      </div >
-      <MainContainer />
       
+      
+      <MainContainer />
       <Profile />
       
     </>

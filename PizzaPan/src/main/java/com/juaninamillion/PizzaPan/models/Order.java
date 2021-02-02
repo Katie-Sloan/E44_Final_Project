@@ -1,12 +1,12 @@
 package com.juaninamillion.PizzaPan.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.juaninamillion.PizzaPan.Enums.FoodStatus;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Entity
 @Table(name = "orders")
@@ -43,6 +43,9 @@ public class Order {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @Column(name = "food_status")
+    private FoodStatus foodStatus;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -53,6 +56,7 @@ public class Order {
         this.user = user;
         this.foods = new ArrayList<>();
         this.drinks = new ArrayList<>();
+        this.foodStatus = null;
     }
 
     public Order() {
@@ -109,9 +113,18 @@ public class Order {
 
     public void addFood(Food food){
         this.foods.add(food);
+        this.setFoodStatus(FoodStatus.PREPARATION);
     }
 
     public void addDrink(Drink drink) {
         this.drinks.add(drink);
+    }
+
+    public FoodStatus getFoodStatus() {
+        return foodStatus;
+    }
+
+    public void setFoodStatus(FoodStatus foodStatus) {
+        this.foodStatus = foodStatus;
     }
 }

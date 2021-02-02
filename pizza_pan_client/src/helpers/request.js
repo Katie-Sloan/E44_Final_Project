@@ -5,7 +5,7 @@ class Request {
       return fetch(url)
       .then((res) => res.json());
     }
-    
+
 }
 
 export default Request;
