@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import FoodDetail from './FoodDetail';
 
 
@@ -9,14 +9,10 @@ const FoodList = (props) => {
     }
 
     const foods = props.foods.map((food, index) => {
-
         return (
-            <>
-            
-            <ul>
-                <FoodDetail food = {food} />
+            <ul key={index}>
+                <FoodDetail food = {food}/>
             </ul>
-            </>
         )
     })
 
@@ -26,12 +22,8 @@ const FoodList = (props) => {
         <ul className="component-list">
             {foods}
         </ul>
-
         </>
     )
-
-
-
 }
 
 export default FoodList
