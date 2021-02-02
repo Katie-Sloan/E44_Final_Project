@@ -30,8 +30,8 @@ const MenuContainer = () => {
   }, [])
 
   useEffect(()=> {
-
-  }, [orderItems])
+    setOrderItems(orderItems);
+  })
 
   const findPirateById = function(id){
     return foods.find((food) => {
@@ -88,6 +88,7 @@ const MenuContainer = () => {
           <DrinkList drinks={drinks}/>
           <SitInOrTakeOutOption />
           <ViewBasket orderItems = {orderItems}
+          key = {orderItems.length}
           setOrderItems = {setOrderItems}
           />  
         </>
