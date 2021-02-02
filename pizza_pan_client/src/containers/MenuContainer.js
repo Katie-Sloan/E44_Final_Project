@@ -11,6 +11,7 @@ const MenuContainer = () => {
   const [foods, setFoods] = useState([]);
   const [drinks, setDrinks] = useState([]);
   const [orderItems, setOrderItems] = useState([]);
+  const [propKey, setPropKey] = useState(1);
 
   const requestAll = function(){
     const request = new Request();
@@ -50,7 +51,10 @@ const MenuContainer = () => {
     console.log("got this far");
     let newOrderItems = orderItems;
     newOrderItems.push(food);
-    setOrderItems(newOrderItems);   
+    setOrderItems(newOrderItems); 
+    let newPropKey = propKey;
+    newPropKey += 1;
+    setPropKey(newPropKey);
     console.log(orderItems)
   }
 
@@ -88,7 +92,7 @@ const MenuContainer = () => {
           <DrinkList drinks={drinks}/>
           <SitInOrTakeOutOption />
           <ViewBasket orderItems = {orderItems}
-          key = {orderItems.length}
+          key = {propKey}
           setOrderItems = {setOrderItems}
           />  
         </>

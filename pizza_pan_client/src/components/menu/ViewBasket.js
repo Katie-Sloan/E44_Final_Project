@@ -5,7 +5,7 @@ const ViewBasket = (props) => {
     const basketData = props.orderItems.map((item) => {
 
         return (
-            <div key = {props.orderItems.length}>
+            <div key = {props.propKey}>
                 {item.title}
             </div>
         )
