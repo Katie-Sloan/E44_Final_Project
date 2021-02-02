@@ -3224,6 +3224,9 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at java.base/java.nio.channels.FileChannel.tryLock(FileChannel.java:1178)
 	at org.h2.mvstore.FileStore.open(FileStore.java:163)
 	... 28 more
+<<<<<<< HEAD
+2021-02-02 11:13:30 jdbc[3]: exception
+=======
 2021-02-02 11:02:55 jdbc[3]: exception
 >>>>>>> develop
 org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-200]
@@ -3266,7 +3269,11 @@ org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (
 	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1080)
 	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:996)
 <<<<<<< HEAD
+<<<<<<< HEAD
 2021-02-01 17:43:56 jdbc[3]: exception
+=======
+2021-02-02 11:13:30 jdbc[3]: exception
+>>>>>>> develop
 =======
 2021-02-02 11:02:55 jdbc[3]: exception
 >>>>>>> develop
@@ -3311,8 +3318,13 @@ org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (
 	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1080)
 	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:996)
 <<<<<<< HEAD
+<<<<<<< HEAD
 2021-02-01 17:47:05 database: flush
 org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/Users/mrmax/Desktop/E44 Final/E44_Final_Project/PizzaPan/db/pizzapan_db.mv.db [1.4.200/7]" [50000-200]
+=======
+2021-02-02 11:25:30 database: flush
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/Users/codeclanstudent/Desktop/codeclan_work/ordering_app/E44_Final_Project/E44_Final_Project/PizzaPan/db/pizzapan_db.mv.db [1.4.200/7]" [50000-200]
+>>>>>>> develop
 =======
 2021-02-02 11:06:13 database: flush
 org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/Users/rob/Desktop/codeclan_work/week_15/E44_Final_Project/PizzaPan/db/pizzapan_db.mv.db [1.4.200/7]" [50000-200]
@@ -3351,11 +3363,19 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:748)
+<<<<<<< HEAD
 Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "java.lang.IllegalStateException: The file is locked: nio:/Users/mrmax/Desktop/E44 Final/E44_Final_Project/PizzaPan/db/pizzapan_db.mv.db [1.4.200/7]" [50000-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	... 33 more
 Caused by: java.lang.IllegalStateException: The file is locked: nio:/Users/mrmax/Desktop/E44 Final/E44_Final_Project/PizzaPan/db/pizzapan_db.mv.db [1.4.200/7]
+=======
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "java.lang.IllegalStateException: The file is locked: nio:/Users/codeclanstudent/Desktop/codeclan_work/ordering_app/E44_Final_Project/E44_Final_Project/PizzaPan/db/pizzapan_db.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 33 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/Users/codeclanstudent/Desktop/codeclan_work/ordering_app/E44_Final_Project/E44_Final_Project/PizzaPan/db/pizzapan_db.mv.db [1.4.200/7]
+>>>>>>> develop
 =======
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
@@ -3378,10 +3398,13 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at sun.nio.ch.FileChannelImpl.tryLock(FileChannelImpl.java:1107)
 	at org.h2.store.fs.FileNio.tryLock(FilePathNio.java:121)
 	at java.nio.channels.FileChannel.tryLock(FileChannel.java:1155)
+<<<<<<< HEAD
 	at org.h2.mvstore.FileStore.open(FileStore.java:163)
 	... 28 more
 2021-02-01 17:51:24 database: flush
 org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/Users/mrmax/Desktop/E44 Final/E44_Final_Project/PizzaPan/db/pizzapan_db.mv.db [1.4.200/7]" [50000-200]
+=======
+>>>>>>> develop
 =======
 	at java.base/sun.nio.ch.FileLockTable.checkList(FileLockTable.java:229)
 	at java.base/sun.nio.ch.FileLockTable.add(FileLockTable.java:123)
