@@ -42,9 +42,10 @@ const MenuContainer = () => {
     .then(()=> window.location ="/foods")
   }
 
-  const addToFoodCount = function(){
-    console.log("got this far");      
-    
+  const addToFoodCount = function(food){
+    console.log("got this far");
+    orderItems.push(food)    
+    console.log(orderItems)
   }
 
   const subtractFromFoodCount = function(){

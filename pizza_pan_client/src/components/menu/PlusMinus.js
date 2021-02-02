@@ -2,17 +2,17 @@ import React from 'react';
 import '../../style/plusMinus.css';
 
 const PlusMinus = (
-    {addToFoodCount, subtractFromFoodCount}
+    {food, addToFoodCount, subtractFromFoodCount}
 ) => {
 
     const handleAdd = (event) => {
         event.preventDefault();
-        addToFoodCount(); 
+        addToFoodCount(food); 
     }
 
     const handleSubtract = (event) => {
         event.preventDefault();
-        subtractFromFoodCount();
+        subtractFromFoodCount(food);
     }
 
     return (

@@ -17,7 +17,8 @@ const FoodDetail = (
             <PlusMinus 
             addToFoodCount={addToFoodCount}
             subtractFromFoodCount={subtractFromFoodCount}
-             />
+            food={food}
+            />
         </li>
     )
 }
