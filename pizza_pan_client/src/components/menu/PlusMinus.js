@@ -17,8 +17,8 @@ const PlusMinus = (
 
     return (
         <div id="plus-minus-buttons">
-            {/* <button onClick={handleAdd}>+</button>
-            <button onClick={handleSubtract}>-</button> */}
+            <button onClick={handleAdd}>+</button>
+            <button onClick={handleSubtract}>-</button>
         </div>
     )
 }

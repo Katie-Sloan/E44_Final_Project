@@ -51,8 +51,6 @@ const MenuContainer = () => {
     console.log("got this far");
   }
 
-  const object = [foods, addToFoodCount, subtractFromFoodCount]
-
   if(!foods){
     return null
   }
@@ -60,10 +58,9 @@ const MenuContainer = () => {
   
         <>
           <FoodList 
-          object={object}
-          // foods={foods}
-          // addToFoodCount={addToFoodCount}
-          // subtractFromFoodCount={subtractFromFoodCount}
+          foods={foods}
+          addToFoodCount={addToFoodCount}
+          subtractFromFoodCount={subtractFromFoodCount}
           />
           <DrinkList drinks={drinks}/>
           <SitInOrTakeOutOption />
