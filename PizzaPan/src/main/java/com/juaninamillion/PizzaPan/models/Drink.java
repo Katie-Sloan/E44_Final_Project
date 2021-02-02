@@ -14,7 +14,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Drink {
 
-    @Column(name= "title")
+    @Column(name= "name")
     private String title;
 
     @Column(name = "price")

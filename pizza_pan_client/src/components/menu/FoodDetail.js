@@ -1,10 +1,16 @@
-import React from 'react'
-import PlusMinus from './PlusMinus'
+import React from 'react';
+import PlusMinus from './PlusMinus';
+import '../../style/menu.css';
 
-const FoodDetail = () => {
+const FoodDetail = ({food}) => {
+
+    if (!food){
+        return "Loading..."
+    }
     return (
         <li>
-            <p>Food Name</p>
+            <p>{food.title} {food.price}</p>
+            <img src={food.image} className="menu-item-image"></img>
             <PlusMinus />
         </li>
     )

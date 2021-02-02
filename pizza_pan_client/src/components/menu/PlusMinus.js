@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import '../../style/plusMinus.css';
+
 
 const PlusMinus = () => {
     return (
-        <div>
-            <p> 2 x icons goes here for plus/minus </p>
+        <div id="plus-minus-buttons">
+            <button>+</button>
+            <button>-</button>
         </div>
     )
 }

@@ -1,11 +1,26 @@
 import React from 'react'
 import DrinkDetail from './DrinkDetail';
 
-const DrinkList = () => {
+const DrinkList = (props) => {
+
+    if (props.drinks.length === 0){
+        return (<p>Loading drinks...</p>)
+    }
+
+    const drinks = props.drinks.map((drink, index) => {
+        return (
+            <ul>
+                <DrinkDetail drink = {drink} />  
+            </ul>
+        )
+    })
     return (
-        <ul>
-            <DrinkDetail />
+        <>
+        <h2>Drinks</h2>
+        <ul className="component-list">
+            {drinks}
         </ul>
+        </>
     )
 }
 

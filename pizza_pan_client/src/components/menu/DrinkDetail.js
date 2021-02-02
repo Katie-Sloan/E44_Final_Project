@@ -1,10 +1,17 @@
 import React from 'react';
 import PlusMinus from './PlusMinus';
 
-const DrinkDetail = () => {
+const DrinkDetail = ({drink}) => {
+
+    if (!drink){
+        return "Loading..."
+    }
     return (
         <li>
-            <p>Drink Name</p>
+
+            <p>{drink.title} {drink.price}</p>
+            <img src={drink.image} className="menu-item-image"></img>
+        
             <PlusMinus />
         </li>
     )
