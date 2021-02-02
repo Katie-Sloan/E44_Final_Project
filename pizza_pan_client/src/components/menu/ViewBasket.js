@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ViewBasket = () => {
+const ViewBasket = ({orderItems, setOrderItems}) => {
     return (
         <div>
             <p>Icon goes here to click and view basket</p>

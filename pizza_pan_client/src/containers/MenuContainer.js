@@ -29,6 +29,10 @@ const MenuContainer = () => {
     requestAll()
   }, [])
 
+  useEffect(()=> {
+
+  }, [orderItems])
+
   const findPirateById = function(id){
     return foods.find((food) => {
       return food.id === parseInt(id);
@@ -44,7 +48,9 @@ const MenuContainer = () => {
 
   const addToFoodCount = function(food){
     console.log("got this far");
-    orderItems.push(food)    
+    let newOrderItems = orderItems;
+    newOrderItems.push(food);
+    setOrderItems(newOrderItems);   
     console.log(orderItems)
   }
 
@@ -60,9 +66,10 @@ const MenuContainer = () => {
       if(food == order) {
         const index = orderItems.indexOf(order)
         orderItems.splice(index, 1);
+        console.log(orderItems);
+        return;
       }
     }
-    console.log(orderItems);
   }
     
     
@@ -80,7 +87,9 @@ const MenuContainer = () => {
           />
           <DrinkList drinks={drinks}/>
           <SitInOrTakeOutOption />
-          <ViewBasket />  
+          <ViewBasket orderItems = {orderItems}
+          setOrderItems = {setOrderItems}
+          />  
         </>
     )
 }
