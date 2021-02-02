@@ -8,7 +8,7 @@ const AccountDetails = ({user}) => {
     const [stateUser, setStateUser] = useState(
         {
             name: "",
-            email: "",
+            emailAddress: "",
             password: ""
         }
     )
@@ -34,8 +34,11 @@ const AccountDetails = ({user}) => {
     return(
         <>
         <form onSubmit= {handleSubmit}>
+            <label htmlFor="name">Name:</label>
             <input type="text" placeholder="Your name" name="name" onChange={handleChange} value={stateUser.name}/>
-            <input type="text" placeholder="Your email" name="email" onChange={handleChange} value={stateUser.email}/>
+            <label htmlFor="email">Email:</label>
+            <input type="text" placeholder="Your email" name="emailAddress" onChange={handleChange} value={stateUser.email_address}/>
+            <label type="password">Password:</label>
             <input type="text" placeholder="Your password" name="password" onChange={handleChange} value={stateUser.password}/>
             <button type="submit">Save</button>
         </form>
