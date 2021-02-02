@@ -48,9 +48,24 @@ const MenuContainer = () => {
     console.log(orderItems)
   }
 
-  const subtractFromFoodCount = function(){
-    console.log("got this far");
+  const subtractFromFoodCount = function(food){
+    console.log("got this far")
+    
+    // orderItems.forEach(function(order) {
+    //   if(food == order) {
+    //     orderItems.splice(orderItems.indexOf(order, 1));
+    //     break
+    //   }
+    for (const order of orderItems) {
+      if(food == order) {
+        const index = orderItems.indexOf(order)
+        orderItems.splice(index, 1);
+      }
+    }
+    console.log(orderItems);
   }
+    
+    
 
   if(!foods){
     return null
