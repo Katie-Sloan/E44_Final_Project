@@ -28,18 +28,6 @@ const MenuContainer = () => {
     requestAll()
   }, [])
 
-  const findFoodById = function(id){
-    return foods.find((food) => {
-      return food.id === parseInt(id);
-    })
-  }
-
-  const handleDelete = function(id){
-    const request = new Request();
-    const url = "api/foods" + id
-    request.delete(url)
-    .then(()=> window.location ="/foods")
-  }
 
   if(!foods){
     return null
