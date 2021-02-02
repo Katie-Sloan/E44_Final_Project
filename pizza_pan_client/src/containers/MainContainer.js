@@ -3,6 +3,8 @@ import Header from '../components/header/Header';
 import ContentContainer from './ContentContainer';
 import OrderDetails from '../OrderDetails';
 import Request from '../helpers/request'
+import '../style/mainContainer.css'
+import Sidebar from '../components/Sidebar'
 
 
 
@@ -30,7 +32,10 @@ const MainContainer = () => {
                 <Header />
             </header>
             <main>
-                <ContentContainer />
+                <div className="main-content">
+                    <ContentContainer className="main"/>
+                    <Sidebar className="sidebar"/>
+                </div>
             </main>
             <footer>
                 <p>Footer stuff here</p>
