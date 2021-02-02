@@ -14,8 +14,68 @@ button {
   padding: 1rem 2rem;
   width: 120px;
   cursor: pointer;
+  
 }
 
 img {
   width: 120px;
 }
+
+.header .logo {
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 400;
+  background-color: rgb(94, 93, 151);
+}
+
+.header .logo .pizzapan {
+  color: #1890ff;
+  margin: 0 5px 0 0;
+  font-size: 28px;
+
+  
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 60vmin;
+  pointer-events: none;
+}
+
+.menu-item{
+  float: left;
+  text-align: center;
+}
+
+.login-button{
+position: absolute;
+top: 50px;
+margin-right: 0px;
+background-color: #008CBA;
+flex-direction: row;
+position: absolute; 
+right: 150px;
+padding: 10px;
+margin: 0px;
+width: 70px;
+height: 35px;
+border: 0px
+}
+
+.logout-button{
+  position: absolute;
+  top: 50px;
+  margin-right: 40px;
+  background-color: #ba000f;
+  flex-direction: row;
+  position: absolute; 
+  right: 150px;
+  padding: 10px;
+  margin: 0px;
+  width: 70px;
+  height: 35px;
+  border: 0px
+  }

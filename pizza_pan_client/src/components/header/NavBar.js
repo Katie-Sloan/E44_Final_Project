@@ -5,6 +5,7 @@ import Basket from './Basket';
 const NavBar = () => {
     return (
         <>
+        
           <Login />
           <Basket />  
         </>
