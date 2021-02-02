@@ -26,8 +26,15 @@ const MainContainer = () => {
     }, []);
     return (
         <>
-            <Header />
-            <ContentContainer />
+            <header>
+                <Header />
+            </header>
+            <main>
+                <ContentContainer />
+            </main>
+            <footer>
+                <p>Footer stuff here</p>
+            </footer>
         </>
     )
 }
