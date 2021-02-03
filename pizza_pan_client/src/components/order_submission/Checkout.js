@@ -2,44 +2,59 @@ import React from 'react'
 import FoodDetail from '.././menu/FoodDetail'
 import DrinkDetail from '../menu/DrinkDetail'
 
-const Checkout = ({orderItems, checkoutKey, setCheckoutKey}) => {
+const Checkout = ({orderItems, checkoutKey, setCheckoutKey, addToFoodCount, subtractFromFoodCount}) => {
     
-    // const renderItems = function(items) {
-    //     for (item of items) {
-    //         if (item.cookingTime == true) {
-    //             <FoodDetail/>
-    //         }
-    //         else return <DrinkDetail />
-    //     }
-    // }
-    
-    
-    // const itemsToShow = orderItems.map((item) => {
+    let foodStuff = [];
+    let drinkStuff = [];
 
-    //     return (
-    //         <div key = {props.key}>
-    //             {item.title}
-    //         </div>
-    //     )
-    // })
     const orderItemsPrint = function(orderItemsToPass) {
         for (const order of orderItemsToPass) {
             if (order.cookingTime > 0) {
             console.log("wooo")
+            foodStuff.push(order)
             }
             else console.log("I'm a drink!")
+            drinkStuff.push(order)
         }
     }
-    
+
+    orderItemsPrint(orderItems)
+
+    const foodsToBeRenderedData = foodStuff.map((food, index) => {
+
+        return (
+            <ul key={index}>
+                <FoodDetail 
+                position={index+1}
+                food = {food}
+                addToFoodCount = {addToFoodCount}
+                subtractFromFoodCount = {subtractFromFoodCount}
+                />
+            </ul>
+        )
+    });
+
     return (
-        <div>
-            <p> Load order details here </p>
-            <button onClick={orderItemsPrint(orderItems)}>Click me</button>
-            
-
-            
-        </div>
+        <>
+        <h2>Food</h2>
+        
+        <ul className="component-list">
+            {foodsToBeRenderedData}
+        </ul>
+        </>
     )
-}
 
+    
+//     return (
+//         <div>
+//             <p> Load order details here </p>
+//             <p>{orderItemsPrint(orderItems)}</p>
+
+            
+
+            
+//         </div>
+//     )
+// }
+    }
 export default Checkout

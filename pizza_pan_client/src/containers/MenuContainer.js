@@ -85,6 +85,8 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
           orderItems={orderItems}
           key={checkoutKey}
           setCheckoutKey={setCheckoutKey}
+          addToFoodCount={addToFoodCount}
+          subtractFromFoodCount={subtractFromFoodCount}
           >Checkout</Link>  
         </>
     )
