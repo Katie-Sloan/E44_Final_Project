@@ -12,9 +12,8 @@ const ContentContainer = ( {orderItems, key, setOrderItems, test, setTest, addTo
             <>
             <TempNavBar/>
             <Switch>
-                <Route path="/account" component={AccountDetails}/>
-                <Route path="/menu" render={() => {
-                    return 
+                
+                <Route path="/menu" render={() => 
                         <MenuContainer
                         orderItems = {orderItems}
                         key = {key}
@@ -26,8 +25,9 @@ const ContentContainer = ( {orderItems, key, setOrderItems, test, setTest, addTo
                         addToDrinkCount={addToDrinkCount}
                         subtractFromDrinkCount={subtractFromDrinkCount}
                         />
-                    }}
+                    }
                 />
+                <Route path="/account" component={AccountDetails}/>
                 
            </Switch>
         </>

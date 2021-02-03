@@ -10,7 +10,7 @@ const ViewBasket = (props) => {
 
         return (
             <div key = {props.key}>
-                {props.orderItems.item.title}
+                {item.title}
             </div>
         )
     })
