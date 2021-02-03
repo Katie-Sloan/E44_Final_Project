@@ -1,5 +1,5 @@
 import React from 'react';
-import PlusMinus from './PlusMinus';
+import PlusMinusFood from './PlusMinusFood';
 import '../../style/menu.css';
 
 const FoodDetail = (
@@ -14,7 +14,7 @@ const FoodDetail = (
         <li>
             <p>{food.title} {food.price}</p>
             <img src={food.image} className="menu-item-image" alt={food.title}></img>
-            <PlusMinus 
+            <PlusMinusFood 
             addToFoodCount={addToFoodCount}
             subtractFromFoodCount={subtractFromFoodCount}
             food={food}

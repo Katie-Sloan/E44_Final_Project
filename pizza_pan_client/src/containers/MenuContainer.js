@@ -8,14 +8,11 @@ import Request from '../helpers/request'
 import Filter from '../components/menu/Filter'
 
 
-const MenuContainer = () => {
+const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount}) => {
   const [foods, setFoods] = useState([]);
   const [drinks, setDrinks] = useState([]);
-  const[filteredFoods, setFilteredFoods] = useState([]);
+  const[filteredFoodsAndDrinks, setFilteredFoodsAndDrinks] = useState([]);
   const[filteredDrinks, setFilteredDrinks] = useState([]);
-
-  const [orderItems, setOrderItems] = useState([]);
-  const [propKey, setPropKey] = useState(1);
 
   const requestAll = function(){
     const request = new Request();
@@ -30,8 +27,7 @@ const MenuContainer = () => {
     let foodAndDrinksList = [...data[0]]
     Array.prototype.push.apply(foodAndDrinksList, data[1])
 
-    setFilteredFoods(foodAndDrinksList);
-    setFilteredDrinks(foodAndDrinksList);
+    setFilteredFoodsAndDrinks(foodAndDrinksList);
     })
   }
 
@@ -39,17 +35,16 @@ const MenuContainer = () => {
     requestAll()
   }, [])
 
-
   const filter = (searchMenu) => {
     const lowerSearch = searchMenu.toLowerCase();
-    const filteredFoods = foods.filter((food) => {
+    const filteredFoodsAndDrinks = foods.filter((food) => {
       return food.title.toLowerCase().indexOf(lowerSearch) > -1;
     });
 
     const filteredDrinks = drinks.filter((drink) => {
       return drink.title.toLowerCase().indexOf(lowerSearch) > -1;
     });
-    setFilteredFoods(filteredFoods);
+    setFilteredFoodsAndDrinks(filteredFoodsAndDrinks);
     setFilteredDrinks(filteredDrinks);
   }
 
@@ -65,54 +60,33 @@ const MenuContainer = () => {
     setOrderItems(orderItems);
   })
 
-  const addToFoodCount = function(food){
-    console.log("got this far");
-    let newOrderItems = orderItems;
-    newOrderItems.push(food);
-    setOrderItems(newOrderItems); 
-    let newPropKey = propKey;
-    newPropKey += 1;
-    setPropKey(newPropKey);
-    console.log(orderItems)
-  }
-
-  const subtractFromFoodCount = function(food){
-    console.log("got this far")
-    
-  
-    for (const order of orderItems) {
-      if(food == order) {
-        const index = orderItems.indexOf(order)
-        orderItems.splice(index, 1);
-        console.log(orderItems);
-        return;
-      }
-    }
-  }
-    
-    
-
   if(!foods){
     return null
   }
+
    return (
   
         <>
-          <Filter handleChange={filter} />
-          
-         
+          <Filter handleChange={filter} />         
           <FoodList 
-          
           addToFoodCount={addToFoodCount}
           subtractFromFoodCount={subtractFromFoodCount}
-          foods={filteredFoods}
+          foods={filteredFoodsAndDrinks}
           />
 
-          <DrinkList drinks={filteredDrinks}/>
+          
+          <DrinkList 
+          drinks={filteredDrinks}
+          addToDrinkCount={addToDrinkCount}
+          subtractFromDrinkCount={subtractFromDrinkCount}
+          />
           <SitInOrTakeOutOption />
-          <ViewBasket orderItems = {orderItems}
-          key = {propKey}
+          <ViewBasket  
+          orderItems = {orderItems}
+          key = {key}
           setOrderItems = {setOrderItems}
+          test = {test}
+          setTest = {setTest}
           />  
         </>
     )

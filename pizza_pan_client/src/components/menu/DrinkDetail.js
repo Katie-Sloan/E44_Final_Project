@@ -1,7 +1,7 @@
 import React from 'react';
-import PlusMinus from './PlusMinus';
+import PlusMinusDrink from './PlusMinusDrink';
 
-const DrinkDetail = ({drink}) => {
+const DrinkDetail = ({drink, addToDrinkCount, subtractFromDrinkCount}) => {
 
     if (!drink){
         return "Loading..."
@@ -10,7 +10,11 @@ const DrinkDetail = ({drink}) => {
         <li>
             <p>{drink.title} {drink.price}</p>
             <img src={drink.image} className="menu-item-image" alt={drink.title}></img>
-            <PlusMinus />
+            <PlusMinusDrink
+            addToDrinkCount={addToDrinkCount}
+            subtractFromDrinkCount={subtractFromDrinkCount}
+            drink={drink}
+            />
         </li>
     )
 }
