@@ -5,22 +5,48 @@ import AccountDetails from '../components/AccountDetails';
 import TempNavBar from '../components/header/TempNavbar'
 
 
-const ContentContainer = () => {
+const ContentContainer = ( {orderItems, key, setOrderItems, test, setTest, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount}) => {
+    
     return(
         <Router>
             <>
             <TempNavBar/>
             <Switch>
-            <Route path="/menu" component={MenuContainer}/>
-            <Route path="/account" component={AccountDetails}/>
-            </Switch>
-            </>
-
+                <Route path="/account" component={AccountDetails}/>
+                <Route path="/menu" render={() => {
+                    return 
+                        <MenuContainer
+                        orderItems = {orderItems}
+                        key = {key}
+                        setOrderItems = {setOrderItems}
+                        test = {test}
+                        setTest = {setTest}
+                        addToFoodCount={addToFoodCount}
+                        subtractFromFoodCount={subtractFromFoodCount}
+                        addToDrinkCount={addToDrinkCount}
+                        subtractFromDrinkCount={subtractFromDrinkCount}
+                        />
+                    }}
+                />
+                
+           </Switch>
+        </>
         </Router>
     )
 
 
-
+    // return(
+    //     <Router>
+    //         <>
+    //         <TempNavBar/>
+    //         <Switch>
+    //             <Route path="/menu" component={MenuContainer}/>
+    //             <Route path="/account" render={() => {
+    //                 return <AccountDetails user={user} setUser={setUser} onCreate={onCreate}/>
+    //             }}/>
+    //         </Switch>
+    //         </>
+    //     </Router>
 
 
 

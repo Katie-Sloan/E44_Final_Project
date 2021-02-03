@@ -7,12 +7,12 @@ import ViewBasket from '../components/menu/ViewBasket';
 import Request from '../helpers/request'
 
 
-const MenuContainer = () => {
+const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount}) => {
   const [foods, setFoods] = useState([]);
   const [drinks, setDrinks] = useState([]);
-  const [orderItems, setOrderItems] = useState([]);
-  const [propKey, setPropKey] = useState(1);
-  const [test, setTest] = useState(true);
+  // const [orderItems, setOrderItems] = useState([]);
+  // const [propKey, setPropKey] = useState(1);
+  // const [test, setTest] = useState(true);
 
   const requestAll = function(){
     const request = new Request();
@@ -31,81 +31,70 @@ const MenuContainer = () => {
     requestAll()
   }, [])
 
-  useEffect(()=> {
-    setOrderItems(orderItems);
-  })
+  // useEffect(()=> {
+  //   setOrderItems(orderItems);
+  // })
 
-  const changeTest = function(){
-    setTest(!test);
-  }
+  // const changeTest = function(){
+  //   setTest(!test);
+  // }
 
-  const addToFoodCount = function(food){
-    console.log("got this far");
-    let newOrderItems = orderItems;
-    newOrderItems.push(food);
-    setOrderItems(newOrderItems); 
-    let newPropKey = propKey;
-    newPropKey += 1;
-    setPropKey(newPropKey);
-    console.log(orderItems)
-  }
+  // const addToFoodCount = function(food){
+  //   console.log("got this far");
+  //   let newOrderItems = orderItems;
+  //   newOrderItems.push(food);
+  //   setOrderItems(newOrderItems); 
+  //   let newPropKey = propKey;
+  //   newPropKey += 1;
+  //   setPropKey(newPropKey);
+  //   console.log(orderItems)
+  // }
 
-  const subtractFromFoodCount = function(food){
-    console.log("got this far")
+  // const subtractFromFoodCount = function(food){
+  //   console.log("got this far")
+  //   for (const order of orderItems) {
+  //     if(food == order) {
+  //       const index = orderItems.indexOf(order)
+  //       orderItems.splice(index, 1);
+  //       let newPropKey = propKey;
+  //       newPropKey += 1;
+  //       changeTest();
+  //       console.log(orderItems);
+  //       return;
+  //     }
+  //   }
+  // }
     
-    // orderItems.forEach(function(order) {
-    //   if(food == order) {
-    //     orderItems.splice(orderItems.indexOf(order, 1));
-    //     break
-    //   }
-    for (const order of orderItems) {
-      if(food == order) {
-        const index = orderItems.indexOf(order)
-        orderItems.splice(index, 1);
-        let newPropKey = propKey;
-        newPropKey += 1;
-        changeTest();
-        console.log(orderItems);
-        return;
-      }
-    }
-  }
-    
-  const addToDrinkCount = function(drink){
-    console.log("got this far");
-    let newOrderItems = orderItems;
-    newOrderItems.push(drink);
-    setOrderItems(newOrderItems); 
-    let newPropKey = propKey;
-    newPropKey += 1;
-    setPropKey(newPropKey);
-    console.log(orderItems)
-  }
+  // const addToDrinkCount = function(drink){
+  //   console.log("got this far");
+  //   let newOrderItems = orderItems;
+  //   newOrderItems.push(drink);
+  //   setOrderItems(newOrderItems); 
+  //   let newPropKey = propKey;
+  //   newPropKey += 1;
+  //   setPropKey(newPropKey);
+  //   console.log(orderItems)
+  // }
 
-  const subtractFromDrinkCount = function(drink){
-    console.log("got this far")
-    
-    // orderItems.forEach(function(order) {
-    //   if(food == order) {
-    //     orderItems.splice(orderItems.indexOf(order, 1));
-    //     break
-    //   }
-    for (const order of orderItems) {
-      if(drink == order) {
-        const index = orderItems.indexOf(order)
-        orderItems.splice(index, 1);
-        let newPropKey = propKey;
-        newPropKey += 1;
-        changeTest();
-        console.log(orderItems);
-        return;
-      }
-    }
-  }  
+  // const subtractFromDrinkCount = function(drink){
+  //   console.log("got this far")
+  //   for (const order of orderItems) {
+  //     if(drink == order) {
+  //       const index = orderItems.indexOf(order)
+  //       orderItems.splice(index, 1);
+  //       let newPropKey = propKey;
+  //       newPropKey += 1;
+  //       changeTest();
+  //       console.log(orderItems);
+  //       return;
+  //     }
+  //   }
+  // }  
 
   if(!foods){
     return null
   }
+
    return (
   
         <>
@@ -120,8 +109,9 @@ const MenuContainer = () => {
           subtractFromDrinkCount={subtractFromDrinkCount}
           />
           <SitInOrTakeOutOption />
-          <ViewBasket orderItems = {orderItems}
-          key = {propKey}
+          <ViewBasket  
+          orderItems = {orderItems}
+          key = {key}
           setOrderItems = {setOrderItems}
           test = {test}
           setTest = {setTest}
