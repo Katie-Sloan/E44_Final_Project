@@ -12,6 +12,7 @@ const MenuContainer = () => {
   const [foods, setFoods] = useState([]);
   const [drinks, setDrinks] = useState([]);
   const[filteredFoods, setFilteredFoods] = useState([]);
+  const[filteredDrinks, setFilteredDrinks] = useState([]);
 
   const [orderItems, setOrderItems] = useState([]);
   const [propKey, setPropKey] = useState(1);
@@ -30,6 +31,7 @@ const MenuContainer = () => {
     Array.prototype.push.apply(foodAndDrinksList, data[1])
 
     setFilteredFoods(foodAndDrinksList);
+    setFilteredDrinks(foodAndDrinksList);
     })
   }
 
@@ -43,8 +45,15 @@ const MenuContainer = () => {
     const filteredFoods = foods.filter((food) => {
       return food.title.toLowerCase().indexOf(lowerSearch) > -1;
     });
+
+    const filteredDrinks = drinks.filter((drink) => {
+      return drink.title.toLowerCase().indexOf(lowerSearch) > -1;
+    });
     setFilteredFoods(filteredFoods);
+    setFilteredDrinks(filteredDrinks);
   }
+
+  
 
   const handleDelete = function(id){
     const request = new Request();
@@ -99,7 +108,7 @@ const MenuContainer = () => {
           foods={filteredFoods}
           />
 
-          <DrinkList drinks={drinks}/>
+          <DrinkList drinks={filteredDrinks}/>
           <SitInOrTakeOutOption />
           <ViewBasket orderItems = {orderItems}
           key = {propKey}

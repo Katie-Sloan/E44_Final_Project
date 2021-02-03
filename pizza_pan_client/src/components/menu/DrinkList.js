@@ -10,7 +10,7 @@ const DrinkList = (props) => {
     const drinks = props.drinks.map((drink, index) => {
         return (
             <ul key={index}>
-                <DrinkDetail drink = {drink}/>  
+                <DrinkDetail position={index+1} drink = {drink} />  
             </ul>
         )
     })
