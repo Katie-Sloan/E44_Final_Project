@@ -12,6 +12,7 @@ const MenuContainer = () => {
   const [drinks, setDrinks] = useState([]);
   const [orderItems, setOrderItems] = useState([]);
   const [propKey, setPropKey] = useState(1);
+  const [test, setTest] = useState(true);
 
   const requestAll = function(){
     const request = new Request();
@@ -33,6 +34,10 @@ const MenuContainer = () => {
   useEffect(()=> {
     setOrderItems(orderItems);
   })
+
+  const changeTest = function(){
+    setTest(!test);
+  }
 
   const addToFoodCount = function(food){
     console.log("got this far");
@@ -57,6 +62,9 @@ const MenuContainer = () => {
       if(food == order) {
         const index = orderItems.indexOf(order)
         orderItems.splice(index, 1);
+        let newPropKey = propKey;
+        newPropKey += 1;
+        changeTest();
         console.log(orderItems);
         return;
       }
@@ -86,6 +94,8 @@ const MenuContainer = () => {
       if(drink == order) {
         const index = orderItems.indexOf(order)
         orderItems.splice(index, 1);
+        let newPropKey = propKey;
+        newPropKey += 1;
         console.log(orderItems);
         return;
       }
@@ -112,6 +122,8 @@ const MenuContainer = () => {
           <ViewBasket orderItems = {orderItems}
           key = {propKey}
           setOrderItems = {setOrderItems}
+          test = {test}
+          setTest = {setTest}
           />  
         </>
     )
