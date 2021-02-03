@@ -1,16 +1,20 @@
 import React from 'react';
 import DrinkDetail from './DrinkDetail';
 
-const DrinkList = (props) => {
+const DrinkList = ( {drinks, addToDrinkCount, subtractFromDrinkCount}) => {
 
-    if (props.drinks.length === 0){
+    if (drinks.length === 0){
         return (<p>Loading drinks...</p>)
     }
 
-    const drinks = props.drinks.map((drink, index) => {
+    const drinksData = drinks.map((drink, index) => {
         return (
             <ul key={index}>
-                <DrinkDetail drink = {drink}/>  
+                <DrinkDetail 
+                drink = {drink}
+                addToDrinkCount = {addToDrinkCount}
+                subtractFromDrinkCount = {subtractFromDrinkCount}
+                />  
             </ul>
         )
     })
@@ -18,7 +22,7 @@ const DrinkList = (props) => {
         <>
         <h2>Drinks</h2>
         <ul className="component-list">
-            {drinks}
+            {drinksData}
         </ul>
         </>
     )

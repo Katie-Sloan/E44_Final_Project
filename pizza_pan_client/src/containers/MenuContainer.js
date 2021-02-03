@@ -63,7 +63,34 @@ const MenuContainer = () => {
     }
   }
     
+  const addToDrinkCount = function(drink){
+    console.log("got this far");
+    let newOrderItems = orderItems;
+    newOrderItems.push(drink);
+    setOrderItems(newOrderItems); 
+    let newPropKey = propKey;
+    newPropKey += 1;
+    setPropKey(newPropKey);
+    console.log(orderItems)
+  }
+
+  const subtractFromDrinkCount = function(drink){
+    console.log("got this far")
     
+    // orderItems.forEach(function(order) {
+    //   if(food == order) {
+    //     orderItems.splice(orderItems.indexOf(order, 1));
+    //     break
+    //   }
+    for (const order of orderItems) {
+      if(drink == order) {
+        const index = orderItems.indexOf(order)
+        orderItems.splice(index, 1);
+        console.log(orderItems);
+        return;
+      }
+    }
+  }  
 
   if(!foods){
     return null
@@ -76,7 +103,11 @@ const MenuContainer = () => {
           addToFoodCount={addToFoodCount}
           subtractFromFoodCount={subtractFromFoodCount}
           />
-          <DrinkList drinks={drinks}/>
+          <DrinkList 
+          drinks={drinks}
+          addToDrinkCount={addToDrinkCount}
+          subtractFromDrinkCount={subtractFromDrinkCount}
+          />
           <SitInOrTakeOutOption />
           <ViewBasket orderItems = {orderItems}
           key = {propKey}
