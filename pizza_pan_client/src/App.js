@@ -18,9 +18,8 @@ function App() {
         .then(res => res.json())
         .then((currentUser) => {
             setUser(currentUser)
-            // setLoadMenu(true)
-            //  window.location.('/menu')
-            // window.history.pushState(user, '', 'http://localhost:3000/menu')
+
+            window.history.pushState(user, '', 'http://localhost:3000/menu')
             
         })        
     }
