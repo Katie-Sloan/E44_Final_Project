@@ -37,7 +37,6 @@ const MainContainer = () => {
     }
 
     const addToFoodCount = function(food){
-        console.log("got this far");
         let newOrderItems = orderItems;
         newOrderItems.push(food);
         setOrderItems(newOrderItems); 
@@ -48,12 +47,8 @@ const MainContainer = () => {
       }
     
       const subtractFromFoodCount = function(food){
-        console.log("got to subtractFromFoodCount in MainContainer")
         for (const order of orderItems) {
-          console.log(food)
-          console.log(order)
           if(food.id == order.id) {
-            console.log("hello")
             const index = orderItems.indexOf(order)
             orderItems.splice(index, 1);
             let newPropKey = propKey;
@@ -66,7 +61,6 @@ const MainContainer = () => {
       }
         
       const addToDrinkCount = function(drink){
-        console.log("got this far");
         let newOrderItems = orderItems;
         newOrderItems.push(drink);
         setOrderItems(newOrderItems); 
@@ -77,9 +71,8 @@ const MainContainer = () => {
       }
     
       const subtractFromDrinkCount = function(drink){
-        console.log("got this far")
         for (const order of orderItems) {
-          if(drink == order) {
+          if(drink.id == order.id) {
             const index = orderItems.indexOf(order)
             orderItems.splice(index, 1);
             let newPropKey = propKey;
