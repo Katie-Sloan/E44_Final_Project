@@ -4,11 +4,7 @@ import MenuContainer from './MenuContainer';
 import AccountDetails from '../components/AccountDetails';
 import NavBar from '../components/header/NavBar'
 
-const ContentContainer = ({user, setUser, onCreate}) => {
-    // if(loadMenu){
-    //     setLoadMenu(false)
-    //     return <MenuContainer/>
-    // }
+const ContentContainer = ( {orderItems, key, setOrderItems, test, setTest, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount, user, setUser, onCreate}) => {
 
     return(
         <Router>
@@ -17,7 +13,21 @@ const ContentContainer = ({user, setUser, onCreate}) => {
             <NavBar/>
 
             <Switch>
-                <Route exact path="/menu" component={MenuContainer}/>
+                
+                <Route path="/menu" render={() => 
+                        <MenuContainer
+                        orderItems = {orderItems}
+                        key = {key}
+                        setOrderItems = {setOrderItems}
+                        test = {test}
+                        setTest = {setTest}
+                        addToFoodCount={addToFoodCount}
+                        subtractFromFoodCount={subtractFromFoodCount}
+                        addToDrinkCount={addToDrinkCount}
+                        subtractFromDrinkCount={subtractFromDrinkCount}
+                        />
+                    }
+                />
                 <Route path="/account" render={() => {
 
                     return <AccountDetails 
@@ -32,8 +42,5 @@ const ContentContainer = ({user, setUser, onCreate}) => {
 
         </Router>
     )
-
-
-    }
-
+}            
 export default ContentContainer

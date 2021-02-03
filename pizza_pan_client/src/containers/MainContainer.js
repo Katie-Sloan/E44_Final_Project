@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Header from '../components/header/Header';
 import ContentContainer from './ContentContainer';
-// import OrderDetails from '../OrderDetails';
 import Request from '../helpers/request'
 
 
@@ -9,11 +8,9 @@ import Request from '../helpers/request'
 const MainContainer = ({user, setUser, onCreate}) => {
     const [parkingSpots, setParkingSpots] = useState([]);
     const [tables, setTables] = useState([]);
-
-
-
-
-    // end of user
+    const [orderItems, setOrderItems] = useState([]);
+    const [propKey, setPropKey] = useState(1);
+    const [test, setTest] = useState(true);
     
     const apiRequests = () => {
         const request = new Request();
@@ -29,13 +26,83 @@ const MainContainer = ({user, setUser, onCreate}) => {
     useEffect(() => {
         apiRequests()
     }, []);
+
+    useEffect(()=> {
+        setOrderItems(orderItems);
+    })
+
+    const changeTest = function(){
+        setTest(!test);
+    }
+
+    const addToFoodCount = function(food){
+        let newOrderItems = orderItems;
+        newOrderItems.push(food);
+        setOrderItems(newOrderItems); 
+        let newPropKey = propKey;
+        newPropKey += 1;
+        setPropKey(newPropKey);
+        console.log(orderItems)
+      }
+    
+      const subtractFromFoodCount = function(food){
+        for (const order of orderItems) {
+          if(food.id == order.id) {
+            const index = orderItems.indexOf(order)
+            orderItems.splice(index, 1);
+            let newPropKey = propKey;
+            newPropKey += 1;
+            changeTest();
+            console.log(orderItems);
+            return;
+          }
+        }
+      }
+        
+      const addToDrinkCount = function(drink){
+        let newOrderItems = orderItems;
+        newOrderItems.push(drink);
+        setOrderItems(newOrderItems); 
+        let newPropKey = propKey;
+        newPropKey += 1;
+        setPropKey(newPropKey);
+        console.log(orderItems)
+      }
+    
+      const subtractFromDrinkCount = function(drink){
+        for (const order of orderItems) {
+          if(drink.id == order.id) {
+            const index = orderItems.indexOf(order)
+            orderItems.splice(index, 1);
+            let newPropKey = propKey;
+            newPropKey += 1;
+            changeTest();
+            console.log(orderItems);
+            return;
+          }
+        }
+      }  
+
     return (
         <>
             <header>
                 <Header />
             </header>
             <main>
-                <ContentContainer user={user} setUser={setUser} onCreate={onCreate}/>
+                <ContentContainer 
+                 orderItems = {orderItems}
+                 key = {propKey}
+                 setOrderItems = {setOrderItems}
+                 test = {test}
+                 setTest = {setTest}
+                 addToFoodCount={addToFoodCount}
+                 subtractFromFoodCount={subtractFromFoodCount}
+                 addToDrinkCount={addToDrinkCount}
+                 subtractFromDrinkCount={subtractFromDrinkCount}
+                 user={user} 
+                 setUser={setUser} 
+                 onCreate={onCreate}
+                 />  
             </main>
             <footer>
                 <p>Footer stuff here</p>

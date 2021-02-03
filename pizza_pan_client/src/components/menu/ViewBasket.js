@@ -2,10 +2,14 @@ import React from 'react'
 
 const ViewBasket = (props) => {
     
+    if(props.orderItems == null) {
+        return null;
+    }
+
     const basketData = props.orderItems.map((item) => {
 
         return (
-            <div key = {props.propKey}>
+            <div key = {props.key}>
                 {item.title}
             </div>
         )
