@@ -5,14 +5,17 @@ import AccountDetails from '../components/AccountDetails';
 import TempNavBar from '../components/header/TempNavbar'
 
 
-const ContentContainer = () => {
+const ContentContainer = ({onCreate}) => {
     return(
         <Router>
             <>
             <TempNavBar/>
             <Switch>
             <Route path="/menu" component={MenuContainer}/>
-            <Route path="/account" component={AccountDetails}/>
+            <Route path="/account" render={() => {
+            return <AccountDetails onCreate={onCreate}/>
+            }}/>
+        
             </Switch>
             </>
 
@@ -20,19 +23,6 @@ const ContentContainer = () => {
     )
 
 
-
-
-
-
-
-    // // logic goes here to determine what this is returning
-    // if (true) {
-    //     return <MenuContainer />
-    // }
-
-    // return (
-    //     <AccountDetails />
-    // )
-}
+    }
 
 export default ContentContainer

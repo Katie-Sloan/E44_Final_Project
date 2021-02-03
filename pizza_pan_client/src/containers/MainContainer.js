@@ -9,6 +9,23 @@ import Request from '../helpers/request'
 const MainContainer = () => {
     const [parkingSpots, setParkingSpots] = useState([]);
     const [tables, setTables] = useState([]);
+
+    // user
+
+        const handlePost = function(user){
+        const request = new Request();
+        request.post("api/users", user)
+        .then(() => window.location='/menu')
+    }
+
+
+    // const [stateUser, setStateUser] = useState(
+    //     {
+    //         name: "",
+    //         emailAddress: "",
+    //         password: ""
+    //     }
+    // )
     
     const apiRequests = () => {
         const request = new Request();
@@ -30,7 +47,7 @@ const MainContainer = () => {
                 <Header />
             </header>
             <main>
-                <ContentContainer />
+                <ContentContainer onCreate={handlePost}/>
             </main>
             <footer>
                 <p>Footer stuff here</p>
