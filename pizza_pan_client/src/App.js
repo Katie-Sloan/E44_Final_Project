@@ -1,5 +1,5 @@
 
-import './App.css';
+import './style/App.css';
 import MainContainer from './containers/MainContainer';
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';

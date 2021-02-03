@@ -5,6 +5,18 @@ body {
   padding: 10px;
 }
 
+ul {
+  padding:0;
+}
+
+h2 {
+  margin:0;
+}
+
+p{
+  margin:0;
+}
+
 button {
   margin: 2rem 0;
   padding: 1rem 2rem;
