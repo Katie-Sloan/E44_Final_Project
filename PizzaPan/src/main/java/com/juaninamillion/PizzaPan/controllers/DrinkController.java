@@ -23,5 +23,4 @@ public class DrinkController {
     public ResponseEntity getDrink(@PathVariable Long id) {
         return new ResponseEntity<>(drinkRepository.findById(id), HttpStatus.OK);
     }
-
 }

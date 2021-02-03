@@ -1,8 +1,6 @@
 package com.juaninamillion.PizzaPan.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -13,6 +11,10 @@ import java.util.List;
 @Table(name = "drinks")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Drink {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name= "name")
     private String title;
@@ -30,15 +32,22 @@ public class Drink {
     )
     private List<Order> orders;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     public Drink(String title, float price) {
         this.title = title;
         this.price = price;
         this.orders = new ArrayList<>();
 
+    }
+    @Column(name ="image")
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Drink() {
