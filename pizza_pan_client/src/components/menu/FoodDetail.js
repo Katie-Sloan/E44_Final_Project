@@ -2,7 +2,8 @@ import React from 'react';
 import PlusMinus from './PlusMinus';
 import '../../style/menu.css';
 
-const FoodDetail = ({food}) => {
+const FoodDetail = ({food, position}) => {
+    <p>{food.title}</p>
 
     if (!food){
         return "Loading..."

@@ -50,32 +50,22 @@ img {
   text-align: center;
 }
 
-.login-button{
-position: absolute;
-top: 50px;
-margin-right: 0px;
-background-color: #008CBA;
-flex-direction: row;
-position: absolute; 
-right: 150px;
-padding: 10px;
-margin: 0px;
-width: 70px;
-height: 35px;
-border: 0px
-}
 
-.logout-button{
-  position: absolute;
-  top: 50px;
-  margin-right: 40px;
-  background-color: #ba000f;
-  flex-direction: row;
-  position: absolute; 
-  right: 150px;
-  padding: 10px;
-  margin: 0px;
-  width: 70px;
-  height: 35px;
-  border: 0px
-  }
+
+
+
+  .h1-item{
+    position: absolute;
+    top: 50px;
+    display: inline-block;
+    margin-right: 0px;
+    flex-direction: row;
+    position: absolute; 
+    right: 1100px;
+    padding: 10px;
+    margin: 0px;
+    width: 70px;
+    height: 35px;
+    border: 0px
+    text
+    }

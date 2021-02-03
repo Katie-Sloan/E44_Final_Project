@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Header from '../components/header/Header';
 import ContentContainer from './ContentContainer';
-import OrderDetails from '../OrderDetails';
+// import OrderDetails from '../OrderDetails';
 import Request from '../helpers/request'
 
 

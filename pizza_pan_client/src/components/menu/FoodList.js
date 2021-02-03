@@ -8,17 +8,18 @@ const FoodList = (props) => {
         return (<p>Loading food...</p>)
     }
 
-    const foods = props.foods.map((food, index) => {
+    const foods = props.foods.map((food, i) => {
 
         return (
+            
             <>
             
             <ul>
-                <FoodDetail food = {food} />
+                <FoodDetail key={i} food = {food} position={i+1} />
             </ul>
             </>
         )
-    })
+    });
 
     return (
         <>

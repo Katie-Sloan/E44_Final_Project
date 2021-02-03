@@ -5,11 +5,14 @@ import FoodList from '../components/menu/FoodList';
 import SitInOrTakeOutOption from '../components/menu/SitInOrTakeOutOption';
 import ViewBasket from '../components/menu/ViewBasket';
 import Request from '../helpers/request'
+import Filter from '../components/menu/Filter'
 
 
 const MenuContainer = () => {
   const [foods, setFoods] = useState([]);
   const [drinks, setDrinks] = useState([]);
+  const[filteredFoods, setFilteredFoods] = useState([]);
+
 
   const requestAll = function(){
     const request = new Request();
@@ -20,7 +23,11 @@ const MenuContainer = () => {
     Promise.all([foodPromise, drinkPromise])
     .then((data) => {
     setFoods(data[0]);
-    setDrinks(data[1])
+    setDrinks(data[1]);
+    let foodAndDrinksList = [...data[0]]
+    Array.prototype.push.apply(foodAndDrinksList, data[1])
+
+    setFilteredFoods(foodAndDrinksList);
     })
   }
 
@@ -28,10 +35,22 @@ const MenuContainer = () => {
     requestAll()
   }, [])
 
+  // useEffect(() => {
+  //   setFilteredFoods(filteredFoods)
+  // })
+
   const findFoodById = function(id){
     return foods.find((food) => {
       return food.id === parseInt(id);
     })
+  }
+
+  const filter = (searchMenu) => {
+    const lowerSearch = searchMenu.toLowerCase();
+    const filteredFoods = foods.filter((food) => {
+      return food.title.toLowerCase().indexOf(lowerSearch) > -1;
+    });
+    setFilteredFoods(filteredFoods);
   }
 
   const handleDelete = function(id){
@@ -47,7 +66,9 @@ const MenuContainer = () => {
    return (
   
         <>
-          <FoodList foods={foods}/>
+          <Filter handleChange={filter} />
+          <FoodList foods={filteredFoods}/>
+         
           <DrinkList drinks={drinks}/>
           <SitInOrTakeOutOption />
           <ViewBasket />  
