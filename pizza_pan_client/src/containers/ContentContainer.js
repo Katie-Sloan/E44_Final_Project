@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import MenuContainer from './MenuContainer';
 import AccountDetails from '../components/AccountDetails';
-import TempNavBar from '../components/header/TempNavbar'
+import TempNavBar from '../components/header/TempNavbar';
+import Checkout from '../components/order_submission/Checkout';
 
 
 const ContentContainer = ( {orderItems, key, setOrderItems, test, setTest, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount, user, setUser, onCreate}) => {
@@ -13,8 +14,8 @@ const ContentContainer = ( {orderItems, key, setOrderItems, test, setTest, addTo
             <TempNavBar/>
             <Switch>
                 
-                <Route path="/menu" render={() => 
-                        <MenuContainer
+                <Route path="/menu" render={() => {
+                        return <MenuContainer
                         orderItems = {orderItems}
                         key = {key}
                         setOrderItems = {setOrderItems}
@@ -25,7 +26,7 @@ const ContentContainer = ( {orderItems, key, setOrderItems, test, setTest, addTo
                         addToDrinkCount={addToDrinkCount}
                         subtractFromDrinkCount={subtractFromDrinkCount}
                         />
-                    }
+                    }}
                 />
                 <Route path="/account" render={() => {
 
@@ -35,7 +36,20 @@ const ContentContainer = ( {orderItems, key, setOrderItems, test, setTest, addTo
                             onCreate={onCreate}
                             />
                 }}/>
-                
+
+                <Route path="/checkout" render={() => {
+                    return <Checkout
+                    orderItems = {orderItems}
+                    key = {key}
+                    setOrderItems = {setOrderItems}
+                    test = {test}
+                    setTest = {setTest}
+                    addToFoodCount={addToFoodCount}
+                    subtractFromFoodCount={subtractFromFoodCount}
+                    addToDrinkCount={addToDrinkCount}
+                    subtractFromDrinkCount={subtractFromDrinkCount}
+                    />
+                }}/>
             </Switch>
             </>
 
