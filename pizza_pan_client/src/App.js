@@ -18,9 +18,7 @@ function App() {
         .then(res => res.json())
         .then((currentUser) => {
             setUser(currentUser)
-
             window.history.pushState(user, '', 'http://localhost:3000/menu')
-            
         })        
     }
 
@@ -28,12 +26,8 @@ function App() {
   return (
     <>
     <AppHeader />
-    
-      
-      
-      <MainContainer user={user} setUser={setUser} onCreate={handlePost}/>
-      
-      
+    <MainContainer user={user} setUser={setUser} onCreate={handlePost}/>
+ 
     </>
   )
 }

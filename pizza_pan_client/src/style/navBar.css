@@ -1,0 +1,46 @@
+.nav-item {
+    position: absolute;
+    top: 25px;
+    left: 160px;
+    background-color: rgb(94, 93, 151);
+    display: inline;
+    justify-content: left;
+    
+}
+
+.icon{
+    color:white;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+
+ul > li{
+    list-style:none;
+}
+
+a:link {
+    color:white;
+    text-decoration: none;
+    font-size: smaller;
+    border:0;
+    margin-bottom:5px;
+    padding-bottom: 5px;
+}
+
+a:visited {
+    color:white;
+}
+
+a:hover {
+    color: darkgoldenrod;
+}
+
+a:active {
+    color: darkgoldenrod;
+}
+
+
+
