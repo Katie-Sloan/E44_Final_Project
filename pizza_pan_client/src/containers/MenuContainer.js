@@ -14,6 +14,7 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
   const [drinks, setDrinks] = useState([]);
   const[filteredFoods, setFilteredFoods] = useState([]);
   const[checkoutKey, setCheckoutKey] = useState(1);
+  const[tester, setTester] = useState(true);
 
   const requestAll = function(){
     const request = new Request();
@@ -36,6 +37,10 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
     requestAll()
   }, [])
 
+  const changeTester = function(){
+    setTester(!tester)
+  }
+
   const filter = (searchMenu) => {
     const lowerSearch = searchMenu.toLowerCase();
     const filteredFoods = foods.filter((food) => {
@@ -52,6 +57,7 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
   }
   useEffect(()=> {
     setOrderItems(orderItems);
+    changeTester();
   })
 
   if(!foods){
@@ -87,6 +93,9 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
           setCheckoutKey={setCheckoutKey}
           addToFoodCount={addToFoodCount}
           subtractFromFoodCount={subtractFromFoodCount}
+          addToDrinkCount={addToDrinkCount}
+          subtractFromDrinkCount={subtractFromDrinkCount}
+          changeTester={changeTester}
           >Checkout</Link>  
         </>
     )
