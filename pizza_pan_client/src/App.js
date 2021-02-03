@@ -21,9 +21,8 @@ function App() {
             // setLoadMenu(true)
             //  window.location.('/menu')
             // window.history.pushState(user, '', 'http://localhost:3000/menu')
-        })
-        .then()
-        
+            
+        })        
     }
 
 
