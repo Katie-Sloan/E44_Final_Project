@@ -13,7 +13,7 @@ const FoodDetail = (
     return (
         <li>
             <p>{food.title} {food.price}</p>
-            <img src={food.image} className="menu-item-image"></img>
+            <img src={food.image} className="menu-item-image" alt={food.title}></img>
             <PlusMinus 
             addToFoodCount={addToFoodCount}
             subtractFromFoodCount={subtractFromFoodCount}

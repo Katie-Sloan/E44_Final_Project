@@ -34,19 +34,6 @@ const MenuContainer = () => {
     setOrderItems(orderItems);
   })
 
-  const findPirateById = function(id){
-    return foods.find((food) => {
-      return food.id === parseInt(id);
-    })
-  }
-
-  const handleDelete = function(id){
-    const request = new Request();
-    const url = "api/foods" + id
-    request.delete(url)
-    .then(()=> window.location ="/foods")
-  }
-
   const addToFoodCount = function(food){
     console.log("got this far");
     let newOrderItems = orderItems;

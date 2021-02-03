@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import DrinkDetail from './DrinkDetail';
 
 const DrinkList = (props) => {
@@ -9,8 +9,8 @@ const DrinkList = (props) => {
 
     const drinks = props.drinks.map((drink, index) => {
         return (
-            <ul>
-                <DrinkDetail drink = {drink} />  
+            <ul key={index}>
+                <DrinkDetail drink = {drink}/>  
             </ul>
         )
     })
