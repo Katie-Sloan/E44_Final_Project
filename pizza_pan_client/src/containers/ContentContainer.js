@@ -2,8 +2,7 @@ import React, {useState} from 'react'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import MenuContainer from './MenuContainer';
 import AccountDetails from '../components/AccountDetails';
-import TempNavBar from '../components/header/TempNavbar'
-
+import NavBar from '../components/header/NavBar'
 
 const ContentContainer = ({user, setUser, onCreate}) => {
     // if(loadMenu){
@@ -13,10 +12,12 @@ const ContentContainer = ({user, setUser, onCreate}) => {
 
     return(
         <Router>
+
             <>
-            <TempNavBar/>
+            <NavBar/>
+
             <Switch>
-                <Route path="/menu" component={MenuContainer}/>
+                <Route exact path="/menu" component={MenuContainer}/>
                 <Route path="/account" render={() => {
 
                     return <AccountDetails 

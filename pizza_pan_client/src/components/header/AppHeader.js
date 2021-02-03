@@ -1,5 +1,5 @@
-import React from 'react'
-import pizzapan from './pizzapan.png'
+import React from 'react';
+import pizzapan from './pizzapan.png';
 
 
 const AppHeader = () => {
@@ -8,6 +8,7 @@ const AppHeader = () => {
         <div className='header' >
             <div className="logo" >
                 <img src={pizzapan} alt="My logo" />
+
                 
             </div>
             {/* <div className="menu-item">

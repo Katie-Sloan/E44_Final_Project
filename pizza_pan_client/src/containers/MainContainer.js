@@ -9,21 +9,7 @@ import Request from '../helpers/request'
 const MainContainer = ({user, setUser, onCreate}) => {
     const [parkingSpots, setParkingSpots] = useState([]);
     const [tables, setTables] = useState([]);
-    // const [loadMenu, setLoadMenu] = useState(false);
 
-    // user
-
-    // const handlePost = function(user){
-    //     const request = new Request();
-    //     request.post("api/users", user)
-    //     .then(res => res.json())
-    //     .then((currentUser) => {
-    //         setUser(currentUser)
-    //         // setLoadMenu(true)
-    //         // window.location ='/menu'
-    //     })
-        
-    // }
 
 
 
