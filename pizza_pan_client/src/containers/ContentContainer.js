@@ -5,8 +5,8 @@ import AccountDetails from '../components/AccountDetails';
 import TempNavBar from '../components/header/TempNavbar'
 
 
-const ContentContainer = ( {orderItems, key, setOrderItems, test, setTest, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount}) => {
-    
+const ContentContainer = ( {orderItems, key, setOrderItems, test, setTest, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount, user, setUser, onCreate}) => {
+
     return(
         <Router>
             <>
@@ -27,38 +27,19 @@ const ContentContainer = ( {orderItems, key, setOrderItems, test, setTest, addTo
                         />
                     }
                 />
-                <Route path="/account" component={AccountDetails}/>
+                <Route path="/account" render={() => {
+
+                    return <AccountDetails 
+                            user={user} 
+                            setUser={setUser} 
+                            onCreate={onCreate}
+                            />
+                }}/>
                 
-           </Switch>
-        </>
+            </Switch>
+            </>
+
         </Router>
     )
-
-
-    // return(
-    //     <Router>
-    //         <>
-    //         <TempNavBar/>
-    //         <Switch>
-    //             <Route path="/menu" component={MenuContainer}/>
-    //             <Route path="/account" render={() => {
-    //                 return <AccountDetails user={user} setUser={setUser} onCreate={onCreate}/>
-    //             }}/>
-    //         </Switch>
-    //         </>
-    //     </Router>
-
-
-
-
-    // // logic goes here to determine what this is returning
-    // if (true) {
-    //     return <MenuContainer />
-    // }
-
-    // return (
-    //     <AccountDetails />
-    // )
-}
-
+}            
 export default ContentContainer

@@ -5,14 +5,13 @@ import FoodList from '../components/menu/FoodList';
 import SitInOrTakeOutOption from '../components/menu/SitInOrTakeOutOption';
 import ViewBasket from '../components/menu/ViewBasket';
 import Request from '../helpers/request'
+import Filter from '../components/menu/Filter'
 
 
 const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount}) => {
   const [foods, setFoods] = useState([]);
   const [drinks, setDrinks] = useState([]);
-  // const [orderItems, setOrderItems] = useState([]);
-  // const [propKey, setPropKey] = useState(1);
-  // const [test, setTest] = useState(true);
+  const[filteredFoods, setFilteredFoods] = useState([]);
 
   const requestAll = function(){
     const request = new Request();
@@ -23,7 +22,11 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
     Promise.all([foodPromise, drinkPromise])
     .then((data) => {
     setFoods(data[0]);
-    setDrinks(data[1])
+    setDrinks(data[1]);
+    let foodAndDrinksList = [...data[0]]
+    Array.prototype.push.apply(foodAndDrinksList, data[1])
+
+    setFilteredFoods(foodAndDrinksList);
     })
   }
 
@@ -31,65 +34,23 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
     requestAll()
   }, [])
 
-  // useEffect(()=> {
-  //   setOrderItems(orderItems);
-  // })
+  const filter = (searchMenu) => {
+    const lowerSearch = searchMenu.toLowerCase();
+    const filteredFoods = foods.filter((food) => {
+      return food.title.toLowerCase().indexOf(lowerSearch) > -1;
+    });
+    setFilteredFoods(filteredFoods);
+  }
 
-  // const changeTest = function(){
-  //   setTest(!test);
-  // }
-
-  // const addToFoodCount = function(food){
-  //   console.log("got this far");
-  //   let newOrderItems = orderItems;
-  //   newOrderItems.push(food);
-  //   setOrderItems(newOrderItems); 
-  //   let newPropKey = propKey;
-  //   newPropKey += 1;
-  //   setPropKey(newPropKey);
-  //   console.log(orderItems)
-  // }
-
-  // const subtractFromFoodCount = function(food){
-  //   console.log("got this far")
-  //   for (const order of orderItems) {
-  //     if(food == order) {
-  //       const index = orderItems.indexOf(order)
-  //       orderItems.splice(index, 1);
-  //       let newPropKey = propKey;
-  //       newPropKey += 1;
-  //       changeTest();
-  //       console.log(orderItems);
-  //       return;
-  //     }
-  //   }
-  // }
-    
-  // const addToDrinkCount = function(drink){
-  //   console.log("got this far");
-  //   let newOrderItems = orderItems;
-  //   newOrderItems.push(drink);
-  //   setOrderItems(newOrderItems); 
-  //   let newPropKey = propKey;
-  //   newPropKey += 1;
-  //   setPropKey(newPropKey);
-  //   console.log(orderItems)
-  // }
-
-  // const subtractFromDrinkCount = function(drink){
-  //   console.log("got this far")
-  //   for (const order of orderItems) {
-  //     if(drink == order) {
-  //       const index = orderItems.indexOf(order)
-  //       orderItems.splice(index, 1);
-  //       let newPropKey = propKey;
-  //       newPropKey += 1;
-  //       changeTest();
-  //       console.log(orderItems);
-  //       return;
-  //     }
-  //   }
-  // }  
+  const handleDelete = function(id){
+    const request = new Request();
+    const url = "api/foods" + id
+    request.delete(url)
+    .then(()=> window.location ="/foods")
+  }
+  useEffect(()=> {
+    setOrderItems(orderItems);
+  })
 
   if(!foods){
     return null
@@ -98,10 +59,11 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
    return (
   
         <>
+          <Filter handleChange={filter} />         
           <FoodList 
-          foods={foods}
           addToFoodCount={addToFoodCount}
           subtractFromFoodCount={subtractFromFoodCount}
+          foods={filteredFoods}
           />
           <DrinkList 
           drinks={drinks}
@@ -120,4 +82,4 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
     )
 }
 
-export default MenuContainer
+export default MenuContainer;

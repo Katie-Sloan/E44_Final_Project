@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import Header from '../components/header/Header';
 import ContentContainer from './ContentContainer';
-import OrderDetails from '../OrderDetails';
 import Request from '../helpers/request'
 
 
 
-const MainContainer = () => {
+const MainContainer = ({user, setUser, onCreate}) => {
     const [parkingSpots, setParkingSpots] = useState([]);
     const [tables, setTables] = useState([]);
     const [orderItems, setOrderItems] = useState([]);
@@ -100,6 +99,9 @@ const MainContainer = () => {
                  subtractFromFoodCount={subtractFromFoodCount}
                  addToDrinkCount={addToDrinkCount}
                  subtractFromDrinkCount={subtractFromDrinkCount}
+                 user={user} 
+                 setUser={setUser} 
+                 onCreate={onCreate}
                  />  
             </main>
             <footer>

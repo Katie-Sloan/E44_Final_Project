@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Request from '../helpers/request'
 import ".././style/account.css";
 
-const AccountDetails = ({user}) => {
+const AccountDetails = ({user, setUser, onCreate}) => {
 
  
     const [stateUser, setStateUser] = useState(
@@ -22,14 +22,14 @@ const AccountDetails = ({user}) => {
 
     const handleSubmit = function(event) {
         event.preventDefault();
-        handlePost(stateUser);
+        onCreate(stateUser);
     }
 
-    const handlePost = function(user){
-        const request = new Request();
-        request.post("api/users", user)
-        .then(() => window.location='/menu')
-    }
+    // const handlePost = function(user){
+    //     const request = new Request();
+    //     request.post("api/users", user)
+    //     .then(() => window.location='/menu')
+    // }
 
     return(
         <>
