@@ -6,26 +6,28 @@ import Request from '../helpers/request'
 
 
 
-const MainContainer = () => {
+const MainContainer = ({user, setUser, onCreate}) => {
     const [parkingSpots, setParkingSpots] = useState([]);
     const [tables, setTables] = useState([]);
+    // const [loadMenu, setLoadMenu] = useState(false);
 
     // user
 
-        const handlePost = function(user){
-        const request = new Request();
-        request.post("api/users", user)
-        .then(() => window.location='/menu')
-    }
+    // const handlePost = function(user){
+    //     const request = new Request();
+    //     request.post("api/users", user)
+    //     .then(res => res.json())
+    //     .then((currentUser) => {
+    //         setUser(currentUser)
+    //         // setLoadMenu(true)
+    //         // window.location ='/menu'
+    //     })
+        
+    // }
 
 
-    // const [stateUser, setStateUser] = useState(
-    //     {
-    //         name: "",
-    //         emailAddress: "",
-    //         password: ""
-    //     }
-    // )
+
+    // end of user
     
     const apiRequests = () => {
         const request = new Request();
@@ -47,7 +49,7 @@ const MainContainer = () => {
                 <Header />
             </header>
             <main>
-                <ContentContainer onCreate={handlePost}/>
+                <ContentContainer user={user} setUser={setUser} onCreate={onCreate}/>
             </main>
             <footer>
                 <p>Footer stuff here</p>

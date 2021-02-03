@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Request from '../helpers/request'
 import ".././style/account.css";
 
-const AccountDetails = ({onCreate}) => {
+const AccountDetails = ({user, setUser, onCreate}) => {
 
  
     const [stateUser, setStateUser] = useState(
