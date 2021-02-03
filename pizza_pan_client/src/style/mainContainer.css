@@ -1,0 +1,11 @@
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main {
+  flex: 3;
+}
+.sidebar {
+  flex: 1;
+}
