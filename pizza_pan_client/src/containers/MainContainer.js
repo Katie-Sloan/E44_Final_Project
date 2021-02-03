@@ -48,9 +48,12 @@ const MainContainer = () => {
       }
     
       const subtractFromFoodCount = function(food){
-        console.log("got this far")
+        console.log("got to subtractFromFoodCount in MainContainer")
         for (const order of orderItems) {
-          if(food == order) {
+          console.log(food)
+          console.log(order)
+          if(food.id == order.id) {
+            console.log("hello")
             const index = orderItems.indexOf(order)
             orderItems.splice(index, 1);
             let newPropKey = propKey;

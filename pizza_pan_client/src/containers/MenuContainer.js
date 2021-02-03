@@ -98,15 +98,15 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
    return (
   
         <>
-          <FoodList 
-          foods={foods}
-          addToFoodCount={addToFoodCount}
-          subtractFromFoodCount={subtractFromFoodCount}
-          />
           <DrinkList 
           drinks={drinks}
           addToDrinkCount={addToDrinkCount}
           subtractFromDrinkCount={subtractFromDrinkCount}
+          />
+          <FoodList 
+          foods={foods}
+          addToFoodCount={addToFoodCount}
+          subtractFromFoodCount={subtractFromFoodCount}
           />
           <SitInOrTakeOutOption />
           <ViewBasket  
