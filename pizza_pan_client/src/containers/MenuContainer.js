@@ -13,6 +13,7 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
   const [foods, setFoods] = useState([]);
   const [drinks, setDrinks] = useState([]);
   const[filteredFoods, setFilteredFoods] = useState([]);
+  const[checkoutKey, setCheckoutKey] = useState(1);
 
   const requestAll = function(){
     const request = new Request();
@@ -79,7 +80,12 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
           test = {test}
           setTest = {setTest}
           />
-          <Link to="/checkout">Checkout</Link>  
+          <Link 
+          to="/checkout"
+          orderItems={orderItems}
+          key={checkoutKey}
+          setCheckoutKey={setCheckoutKey}
+          >Checkout</Link>  
         </>
     )
 }
