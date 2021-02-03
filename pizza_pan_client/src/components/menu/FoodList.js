@@ -1,23 +1,24 @@
-import React from 'react'
+import React from 'react';
 import FoodDetail from './FoodDetail';
 
 
-const FoodList = (props) => {
+const FoodList = ( {foods, addToFoodCount, subtractFromFoodCount} ) => {
 
-    if (props.foods.length === 0){
+    if (foods.length === 0){
         return (<p>Loading food...</p>)
     }
 
-    const foods = props.foods.map((food, i) => {
+    const foodsData = foods.map((food, index) => {
 
         return (
-            
-            <>
-            
-            <ul>
-                <FoodDetail key={i} food = {food} position={i+1} />
+            <ul key={index}>
+                <FoodDetail 
+                position={index+1}
+                food = {food}
+                addToFoodCount = {addToFoodCount}
+                subtractFromFoodCount = {subtractFromFoodCount}
+                />
             </ul>
-            </>
         )
     });
 
@@ -25,14 +26,10 @@ const FoodList = (props) => {
         <>
         <h2>Food</h2>
         <ul className="component-list">
-            {foods}
+            {foodsData}
         </ul>
-
         </>
     )
-
-
-
 }
 
 export default FoodList

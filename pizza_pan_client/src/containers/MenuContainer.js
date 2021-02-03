@@ -13,6 +13,8 @@ const MenuContainer = () => {
   const [drinks, setDrinks] = useState([]);
   const[filteredFoods, setFilteredFoods] = useState([]);
 
+  const [orderItems, setOrderItems] = useState([]);
+  const [propKey, setPropKey] = useState(1);
 
   const requestAll = function(){
     const request = new Request();
@@ -35,15 +37,6 @@ const MenuContainer = () => {
     requestAll()
   }, [])
 
-  // useEffect(() => {
-  //   setFilteredFoods(filteredFoods)
-  // })
-
-  const findFoodById = function(id){
-    return foods.find((food) => {
-      return food.id === parseInt(id);
-    })
-  }
 
   const filter = (searchMenu) => {
     const lowerSearch = searchMenu.toLowerCase();
@@ -59,6 +52,36 @@ const MenuContainer = () => {
     request.delete(url)
     .then(()=> window.location ="/foods")
   }
+  useEffect(()=> {
+    setOrderItems(orderItems);
+  })
+
+  const addToFoodCount = function(food){
+    console.log("got this far");
+    let newOrderItems = orderItems;
+    newOrderItems.push(food);
+    setOrderItems(newOrderItems); 
+    let newPropKey = propKey;
+    newPropKey += 1;
+    setPropKey(newPropKey);
+    console.log(orderItems)
+  }
+
+  const subtractFromFoodCount = function(food){
+    console.log("got this far")
+    
+  
+    for (const order of orderItems) {
+      if(food == order) {
+        const index = orderItems.indexOf(order)
+        orderItems.splice(index, 1);
+        console.log(orderItems);
+        return;
+      }
+    }
+  }
+    
+    
 
   if(!foods){
     return null
@@ -67,13 +90,23 @@ const MenuContainer = () => {
   
         <>
           <Filter handleChange={filter} />
-          <FoodList foods={filteredFoods}/>
+          
          
+          <FoodList 
+          
+          addToFoodCount={addToFoodCount}
+          subtractFromFoodCount={subtractFromFoodCount}
+          foods={filteredFoods}
+          />
+
           <DrinkList drinks={drinks}/>
           <SitInOrTakeOutOption />
-          <ViewBasket />  
+          <ViewBasket orderItems = {orderItems}
+          key = {propKey}
+          setOrderItems = {setOrderItems}
+          />  
         </>
     )
 }
 
-export default MenuContainer
+export default MenuContainer;

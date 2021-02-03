@@ -2,17 +2,23 @@ import React from 'react';
 import PlusMinus from './PlusMinus';
 import '../../style/menu.css';
 
-const FoodDetail = ({food, position}) => {
-    <p>{food.title}</p>
+const FoodDetail = (
+    {food, addToFoodCount, subtractFromFoodCount}
+    ) => {
 
     if (!food){
         return "Loading..."
     }
+
     return (
         <li>
             <p>{food.title} {food.price}</p>
-            <img src={food.image} className="menu-item-image"></img>
-            <PlusMinus />
+            <img src={food.image} className="menu-item-image" alt={food.title}></img>
+            <PlusMinus 
+            addToFoodCount={addToFoodCount}
+            subtractFromFoodCount={subtractFromFoodCount}
+            food={food}
+            />
         </li>
     )
 }
