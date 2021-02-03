@@ -8,6 +8,7 @@ const AppHeader = () => {
         <div className='header' >
             <div className="logo" >
                 <img src={pizzapan} alt="My logo" />
+                
             </div>
             {/* <div className="menu-item">
             <Menu mode="horizontal" defaultSelectedKeys={['Home']}>

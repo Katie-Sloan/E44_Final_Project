@@ -13,13 +13,14 @@ const FoodList = ( {foods, addToFoodCount, subtractFromFoodCount} ) => {
         return (
             <ul key={index}>
                 <FoodDetail 
+                position={index+1}
                 food = {food}
                 addToFoodCount = {addToFoodCount}
                 subtractFromFoodCount = {subtractFromFoodCount}
                 />
             </ul>
         )
-    })
+    });
 
     return (
         <>
