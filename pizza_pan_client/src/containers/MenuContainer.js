@@ -96,6 +96,7 @@ const MenuContainer = () => {
         orderItems.splice(index, 1);
         let newPropKey = propKey;
         newPropKey += 1;
+        changeTest();
         console.log(orderItems);
         return;
       }
