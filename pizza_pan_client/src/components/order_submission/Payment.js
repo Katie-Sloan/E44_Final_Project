@@ -3,6 +3,7 @@ import Cards from 'react-credit-cards'
 import React, { useState, setState} from 'react';
 
 import 'react-credit-cards/es/styles-compiled.css'
+import '../../style/payment.css'
 
 import Request from '../../helpers/request'
 

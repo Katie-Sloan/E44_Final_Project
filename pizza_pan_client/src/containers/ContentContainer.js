@@ -8,7 +8,7 @@ import Cards from 'react-credit-cards'
 import Checkout from '../components/order_submission/Checkout';
 import NavBar from '../components/header/NavBar'
 
-const ContentContainer = ( {orderItems, key, setOrderItems, test, setTest, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount, user, setUser, onCreate}) => {
+const ContentContainer = ( {orderItems, key, setOrderItems, test, setTest, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount, user, setUser, onCreate, users}) => {
 
     return(
         <Router>
@@ -38,6 +38,7 @@ const ContentContainer = ( {orderItems, key, setOrderItems, test, setTest, addTo
                             user={user} 
                             setUser={setUser} 
                             onCreate={onCreate}
+                            users={users}
                             />
                 }}/>
 

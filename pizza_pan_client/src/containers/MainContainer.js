@@ -5,7 +5,7 @@ import Request from '../helpers/request'
 
 
 
-const MainContainer = ({user, setUser, onCreate}) => {
+const MainContainer = ({user, setUser, onCreate, users}) => {
     const [parkingSpots, setParkingSpots] = useState([]);
     const [tables, setTables] = useState([]);
     const [orderItems, setOrderItems] = useState([]);
@@ -88,7 +88,7 @@ const MainContainer = ({user, setUser, onCreate}) => {
             <header>
                 <Header />
             </header>
-            <main>
+            <main id="container">
                 <ContentContainer 
                  orderItems = {orderItems}
                  key = {propKey}
@@ -102,10 +102,15 @@ const MainContainer = ({user, setUser, onCreate}) => {
                  user={user} 
                  setUser={setUser} 
                  onCreate={onCreate}
+                 users={users}
                  />  
             </main>
-            <footer>
-                <p>Footer stuff here</p>
+            <footer id="footer">
+                <span>Pizza Pan, 123 CodeClan Street, Glasgow G1 1AB</span> 
+                <span> | </span>
+                <span>pizzapan@customerservice.com</span>
+                <span> | </span>
+                <span>0141 123 1234</span>
             </footer>
         </>
     )
