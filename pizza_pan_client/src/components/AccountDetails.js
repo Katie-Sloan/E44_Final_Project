@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import Request from '../helpers/request'
 import ".././style/account.css";
 
-const AccountDetails = ({user, setUser, onCreate}) => {
+
+const AccountDetails = ({user, setUser, onCreate, users}) => {
 
  
     const [stateUser, setStateUser] = useState(
@@ -25,6 +26,8 @@ const AccountDetails = ({user, setUser, onCreate}) => {
         onCreate(stateUser);
     }
 
+    const usersData = users.map(user)
+
     // const handlePost = function(user){
     //     const request = new Request();
     //     request.post("api/users", user)
@@ -33,6 +36,11 @@ const AccountDetails = ({user, setUser, onCreate}) => {
 
     return(
         <>
+        <select option={usersData}>
+            
+
+
+        </select>
         <form onSubmit= {handleSubmit}>
             <label htmlFor="name">Name:</label>
             <input type="text" placeholder="Your name" name="name" onChange={handleChange} value={stateUser.name}/>
