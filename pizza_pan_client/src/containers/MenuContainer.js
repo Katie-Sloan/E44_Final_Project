@@ -4,13 +4,16 @@ import DrinkList from '../components/menu/DrinkList';
 import FoodList from '../components/menu/FoodList';
 import SitInOrTakeOutOption from '../components/menu/SitInOrTakeOutOption';
 import ViewBasket from '../components/menu/ViewBasket';
-import Request from '../helpers/request'
-import Filter from '../components/menu/Filter'
+import Request from '../helpers/request';
+import Filter from '../components/menu/Filter';
+import { Link } from "react-router-dom";
 
 
-const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount}) => {
+const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount, handleRouteInContentContainer}) => {
   const [foods, setFoods] = useState([]);
   const [drinks, setDrinks] = useState([]);
+  const[checkoutKey, setCheckoutKey] = useState(1);
+  const[tester, setTester] = useState(true);
   const[filteredFoodsAndDrinks, setFilteredFoodsAndDrinks] = useState([]);
   const[filteredDrinks, setFilteredDrinks] = useState([]);
 
@@ -35,6 +38,10 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
     requestAll()
   }, [])
 
+  const changeTester = function(){
+    setTester(!tester)
+  }
+
   const filter = (searchMenu) => {
     const lowerSearch = searchMenu.toLowerCase();
     const filteredFoodsAndDrinks = foods.filter((food) => {
@@ -58,6 +65,7 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
   }
   useEffect(()=> {
     setOrderItems(orderItems);
+    changeTester();
   })
 
   if(!foods){
@@ -87,7 +95,18 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
           setOrderItems = {setOrderItems}
           test = {test}
           setTest = {setTest}
-          />  
+          />
+          <Link 
+          to="/checkout"
+          orderItems={orderItems}
+          key={checkoutKey}
+          setCheckoutKey={setCheckoutKey}
+          addToFoodCount={addToFoodCount}
+          subtractFromFoodCount={subtractFromFoodCount}
+          addToDrinkCount={addToDrinkCount}
+          subtractFromDrinkCount={subtractFromDrinkCount}
+          changeTester={changeTester}
+          >Checkout</Link>  
         </>
     )
 }
