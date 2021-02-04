@@ -69,3 +69,29 @@ img {
     border: 0px
     text
     }
+
+
+input{
+	width: 40px;
+	padding: rem .175rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: aqua;
+	background-color: azure;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-radius: 25rem;
+	transition: border-color .15s;
+}
+
+.pay-btn{
+	position: relative;
+	top: 40%;
+	background-color: #4CAF50;
+	margin: 40px;
+	height: 35px;
+	align-items: center;
+}
+.pay-btn:hover {
+	background-color: #b9e9d5;
+}
