@@ -4,15 +4,31 @@ import React, { useState, setState} from 'react';
 
 import 'react-credit-cards/es/styles-compiled.css'
 
+import Request from '../../helpers/request'
+
 
 
 
 const Payment = ({state, orderItems}) => {
-    const payHandler = (e) => {
-        e.preventDefault();
-        alert('Order Confirmed')
-        
+    const foodList = [];
+    const drinkList = [];
+    const request = new Request();
+    const payHandler = (event) => {
+        event.preventDefault();
+        // alert('Order Confirmed')
+        sortFoodAndDrink();
+        request.post('api/orders', {totalPrice: 50, foods: foodList, drinks: drinkList, user: 1, foodStatus:"PREPARATION"})
     }
+    
+    const sortFoodAndDrink = function() {
+        for (const order of orderItems) {
+            if (order.cookingTime > 0)
+                foodList.push(order)
+            else
+                drinkList.push(order)
+        }
+    }
+
 
     const [number, setNumber] = useState('')
     const [name, setName] = useState('')
@@ -66,10 +82,10 @@ const Payment = ({state, orderItems}) => {
                 />
                 {/* <div>{state.message}</div> */}
                  <button onClick={payHandler} className="pay-btn">Pay Here</button>
-            </form>
-            
+            </form>            
         </div>
     )
+
 }
 
 export default Payment;

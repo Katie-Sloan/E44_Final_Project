@@ -10,9 +10,9 @@ const Checkout = ({orderItems, checkoutKey, setCheckoutKey, addToFoodCount, subt
     let foodStuff = [];
     let drinkStuff = [];
 
-    // if (foodStuff.length === 0 && drinkStuff.length == 0){
-    //     return (<p>Loading food and drinks...</p>)
-    // }
+    const sortItems = () => {
+        
+    }
 
     const orderItemsPrint = function(orderItemsToPass) {
         for (const order of orderItemsToPass) {
