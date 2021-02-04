@@ -88,7 +88,7 @@ const MainContainer = ({user, setUser, onCreate, users}) => {
             <header>
                 <Header />
             </header>
-            <main>
+            <main id="container">
                 <ContentContainer 
                  orderItems = {orderItems}
                  key = {propKey}
@@ -105,8 +105,12 @@ const MainContainer = ({user, setUser, onCreate, users}) => {
                  users={users}
                  />  
             </main>
-            <footer>
-                <p>Footer stuff here</p>
+            <footer id="footer">
+                <span>Pizza Pan, 123 CodeClan Street, Glasgow G1 1AB</span> 
+                <span> | </span>
+                <span>pizzapan@customerservice.com</span>
+                <span> | </span>
+                <span>0141 123 1234</span>
             </footer>
         </>
     )

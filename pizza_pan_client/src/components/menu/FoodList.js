@@ -24,8 +24,8 @@ const FoodList = ( {foods, addToFoodCount, subtractFromFoodCount} ) => {
 
     return (
         <>
-        <h2>Food</h2>
-        <ul className="component-list">
+        <h2 id="menu-heading">Menu</h2>
+        <ul className="component-list" id="food-list">
             {foodsData}
         </ul>
         </>

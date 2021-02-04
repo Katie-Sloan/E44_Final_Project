@@ -4,6 +4,9 @@
 
 #checkout-link{
     color:red;
- 
+    font-size: 15px;
 }
 
+#sidebar{
+    text-align:right;
+}
