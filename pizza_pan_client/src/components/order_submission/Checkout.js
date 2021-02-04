@@ -68,7 +68,7 @@ const Checkout = ({orderItems, checkoutKey, setCheckoutKey, addToFoodCount, subt
     return getPricesList.reduce(reducer);
     }
 
-    return (
+    return orderItems.length? 
         <>
         <h2>Please Review Your Order</h2>
         
@@ -83,6 +83,7 @@ const Checkout = ({orderItems, checkoutKey, setCheckoutKey, addToFoodCount, subt
                 Go to Payment
             </Link>
         </>
-    )
+    :
+    <h1>Please add items to basket before checkout</h1>
 }
 export default Checkout
