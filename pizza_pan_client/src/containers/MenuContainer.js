@@ -89,7 +89,7 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
           subtractFromDrinkCount={subtractFromDrinkCount}
           />
           <SitInOrTakeOutOption />
-          <ViewBasket  
+          <ViewBasket  id="view-basket"
           orderItems = {orderItems}
           key = {key}
           setOrderItems = {setOrderItems}
