@@ -63,10 +63,10 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
     request.delete(url)
     .then(()=> window.location ="/foods")
   }
-  useEffect(()=> {
-    setOrderItems(orderItems);
-    changeTester();
-  }, [])
+  // useEffect(()=> {
+  //   setOrderItems(orderItems);
+  //   changeTester();
+  // } [])
 
   if(!foods){
     return null
