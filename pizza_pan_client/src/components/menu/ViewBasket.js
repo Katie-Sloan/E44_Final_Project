@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import '../../style/menu.css';
 
 const ViewBasket = (props) => {
     
@@ -46,8 +47,7 @@ const ViewBasket = (props) => {
     })
     
     return (
-        <div>
-            <p>Icon goes here to click and view basket</p>
+        <div id="sidebar">
             <p>{basketData}</p>
         </div>
     )

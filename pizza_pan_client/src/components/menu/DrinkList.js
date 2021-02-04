@@ -3,9 +3,9 @@ import DrinkDetail from './DrinkDetail';
 
 const DrinkList = ( {drinks, addToDrinkCount, subtractFromDrinkCount}) => {
 
-    if (drinks.length === 0){
-        return (<p>Loading drinks...</p>)
-    }
+    // if (drinks.length === 0){
+    //     return (<p>Loading drinks...</p>)
+    // }
 
     const drinksData = drinks.map((drink, index) => {
         return (
@@ -20,7 +20,7 @@ const DrinkList = ( {drinks, addToDrinkCount, subtractFromDrinkCount}) => {
     })
     return (
         <>
-        <h2>Drinks</h2>
+        {/* <h2>Drinks</h2> */}
         <ul className="component-list">
             {drinksData}
         </ul>

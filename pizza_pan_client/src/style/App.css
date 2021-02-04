@@ -5,6 +5,8 @@ body {
   padding: 10px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: smaller;
+  background-color: black;
+  color: white;
 }
 
 
@@ -78,6 +80,34 @@ border: 2px solid rgb(94, 93, 151);
     text
     }
 
+#search-bar{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 30px;
+  width: 200px;
+}
+
+#footer{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.header{
+  margin-right: 400px;
+}
+
+/* #food-list {
+  flex: 80%;
+}
+
+#sidebar {
+  flex: 20%;
+} */
+
+/* #container {
+  display: flex;
+  flex-wrap: wrap;
+} */
 
 /* .form-item input{
 	width: 40px;
