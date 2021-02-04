@@ -73,18 +73,12 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
           null
   }
 
-  
-
   const handleDelete = function(id){
     const request = new Request();
     const url = "api/foods" + id
     request.delete(url)
     .then(()=> window.location ="/foods")
   }
-  // useEffect(()=> {
-  //   setOrderItems(orderItems);
-  //   changeTester();
-  // } [])
 
   if(!foods){
     return null

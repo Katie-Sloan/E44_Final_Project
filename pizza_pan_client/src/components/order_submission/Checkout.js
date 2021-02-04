@@ -22,12 +22,10 @@ const Checkout = ({orderItems, checkoutKey, setCheckoutKey, addToFoodCount, subt
             console.log("wooo")
             foodStuff.push(order)
             checkoutKey += 1;
-            // changeTester();
             }
             else {console.log("I'm a drink!")
             drinkStuff.push(order)
             checkoutKey += 1;}
-            // changeTester();
         }
     }
 

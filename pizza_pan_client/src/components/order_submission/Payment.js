@@ -78,7 +78,6 @@ const Payment = ({state, orderItems}) => {
                 onChange={e => setCvc(e.target.value)}  
                 onFocus={e => setFocus(e.target.name)}
                 />
-                {/* <div>{state.message}</div> */}
                  <button onClick={payHandler} className="pay-btn">Pay Here</button>
             </form>            
         </div>

@@ -7,35 +7,6 @@ const ViewBasket = (props) => {
         return null;
     }
 
-    // const getIdsAndCountsOfOrder = function() {
-    //     const listOfIdsAndCount = [];
-    //     for (let item of props.orderItems) {
-    //         listOfIdsAndCount.push([item.id, 1])
-    //         for (let orderItem of props.orderItems) {
-    //             if (item.id == orderItem.id) {
-    //                 for (let listItem of listOfIdsAndCount) {
-    //                     if (listItem.id == item.id) {
-    //                         listItem[1]++ 
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //         return listOfIdsAndCount;
-    //     }
-    // }
-
-    // const getFinalOrder = function () {
-    //     const order = [];
-    //     const listOfIdsAndCount = getIdsAndCountsOfOrder();
-    //     for (let item of listOfIdsAndCount) {
-    //         for (let orderItem of props.orderItems) {
-    //             if (item[0] == orderItem.id) {
-    //                 orderItem.count = item[1]
-    //             }
-    //         }
-    //     }
-    // }
-
     const basketData = props.orderItems.map((item) => {
         
         return (

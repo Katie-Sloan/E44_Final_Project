@@ -35,7 +35,7 @@ public class OrderController {
 
     @PostMapping(value = "/orders")
     public ResponseEntity<Order> postOrder(@RequestBody Order order) {
-        order.getUser()
+        order.getUser();
         orderRepository.save(order);
         return new ResponseEntity<>(order, HttpStatus.CREATED);
     }
