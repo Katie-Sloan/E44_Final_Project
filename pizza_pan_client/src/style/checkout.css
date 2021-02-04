@@ -1,0 +1,10 @@
+.checkout-component-list img{
+    height:0;
+    visibility: hidden; 
+    overflow:hidden;   
+}
+
+.checkout-component-list button{
+    height:20;
+    width:20;
+}

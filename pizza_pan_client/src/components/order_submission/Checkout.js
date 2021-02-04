@@ -1,6 +1,7 @@
 import React from 'react'
 import FoodDetail from '.././menu/FoodDetail'
 import DrinkDetail from '../menu/DrinkDetail'
+import '../../style/checkout.css'
 
 const Checkout = ({orderItems, checkoutKey, setCheckoutKey, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount, changeTester}) => {
     
@@ -61,7 +62,7 @@ const Checkout = ({orderItems, checkoutKey, setCheckoutKey, addToFoodCount, subt
         <>
         <h2>Please Review Your Order</h2>
         
-        <ul className="component-list">
+        <ul className="checkout-component-list">
             {foodsToBeRenderedData}
             {drinksToBeRenderedData}
         </ul>
