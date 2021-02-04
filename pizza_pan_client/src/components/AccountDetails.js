@@ -31,7 +31,7 @@ const AccountDetails = ({user, setUser, onCreate, users}) => {
 
     const handleChangeUser = function(event) {
         event.preventDefault();
-        setUser(event.value)
+        setUser(event.target.user)
     }
 
     if(users === null){
@@ -50,7 +50,7 @@ const AccountDetails = ({user, setUser, onCreate, users}) => {
         <>
             
 
-            <select onChange= {handleChangeUser} value={user}> {usersMapped} </select>
+            <select onSelect= {handleChangeUser}> {usersMapped} </select>
 
        
         <form onSubmit= {handleSubmit}>
