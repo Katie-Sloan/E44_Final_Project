@@ -6,6 +6,7 @@ import ".././style/account.css";
 const AccountDetails = ({user, setUser, onCreate, users}) => {
 
  
+
     const [stateUser, setStateUser] = useState(
         {
             name: "",
@@ -13,6 +14,8 @@ const AccountDetails = ({user, setUser, onCreate, users}) => {
             password: ""
         }
     )
+
+ 
 
     const handleChange = function(event) {
         let propertyName = event.target.name;
@@ -26,21 +29,30 @@ const AccountDetails = ({user, setUser, onCreate, users}) => {
         onCreate(stateUser);
     }
 
-    const usersData = users.map(user)
+    const handleChangeUser = function(event) {
+        event.preventDefault();
+        setUser(event.value)
+    }
 
-    // const handlePost = function(user){
-    //     const request = new Request();
-    //     request.post("api/users", user)
-    //     .then(() => window.location='/menu')
-    // }
+    if(users === null){
+        return (<p>Loading users</p>);
+    }
+
+    let usersMapped=[]
+    for(let user of users){
+        usersMapped.push(<option key = {user.id}>{user.name}</option>)
+    }
+
+
+
 
     return(
         <>
-        <select option={usersData}>
             
 
+            <select onChange= {handleChangeUser} value={user}> {usersMapped} </select>
 
-        </select>
+       
         <form onSubmit= {handleSubmit}>
             <label htmlFor="name">Name:</label>
             <input type="text" placeholder="Your name" name="name" onChange={handleChange} value={stateUser.name}/>

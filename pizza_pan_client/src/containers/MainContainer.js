@@ -5,7 +5,7 @@ import Request from '../helpers/request'
 
 
 
-const MainContainer = ({user, setUser, onCreate}) => {
+const MainContainer = ({user, setUser, onCreate, users}) => {
     const [parkingSpots, setParkingSpots] = useState([]);
     const [tables, setTables] = useState([]);
     const [orderItems, setOrderItems] = useState([]);
@@ -102,6 +102,7 @@ const MainContainer = ({user, setUser, onCreate}) => {
                  user={user} 
                  setUser={setUser} 
                  onCreate={onCreate}
+                 users={users}
                  />  
             </main>
             <footer>
