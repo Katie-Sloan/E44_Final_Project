@@ -55,6 +55,24 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
     setFilteredDrinks(filteredDrinks);
   }
 
+  const checkout = () => {
+    return orderItems.length ?
+              <Link id="checkout-link"
+            to="/checkout"
+            orderItems={orderItems}
+            key={checkoutKey}
+            setCheckoutKey={setCheckoutKey}
+            addToFoodCount={addToFoodCount}
+            subtractFromFoodCount={subtractFromFoodCount}
+            addToDrinkCount={addToDrinkCount}
+            subtractFromDrinkCount={subtractFromDrinkCount}
+            changeTester={changeTester}
+            >Checkout
+          </Link>  
+          :
+          null
+  }
+
   
 
   const handleDelete = function(id){
@@ -81,8 +99,6 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
           subtractFromFoodCount={subtractFromFoodCount}
           foods={filteredFoodsAndDrinks}
           />
-
-          
           <DrinkList 
           drinks={filteredDrinks}
           addToDrinkCount={addToDrinkCount}
@@ -96,17 +112,8 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
           test = {test}
           setTest = {setTest}
           />
-          <Link id="checkout-link"
-          to="/checkout"
-          orderItems={orderItems}
-          key={checkoutKey}
-          setCheckoutKey={setCheckoutKey}
-          addToFoodCount={addToFoodCount}
-          subtractFromFoodCount={subtractFromFoodCount}
-          addToDrinkCount={addToDrinkCount}
-          subtractFromDrinkCount={subtractFromDrinkCount}
-          changeTester={changeTester}
-          >Checkout</Link>  
+
+          {checkout()}
         </>
     )
 }
