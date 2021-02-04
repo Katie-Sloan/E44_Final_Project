@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import FoodDetail from '.././menu/FoodDetail'
 import DrinkDetail from '../menu/DrinkDetail'
 import '../../style/checkout.css'
+
 
 const Checkout = ({orderItems, checkoutKey, setCheckoutKey, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount, changeTester}) => {
     
@@ -75,6 +77,11 @@ const Checkout = ({orderItems, checkoutKey, setCheckoutKey, addToFoodCount, subt
             {drinksToBeRenderedData}
             {getTotal()}
         </ul>
+
+        <Link
+            to='/payment'>
+                Go to Payment
+            </Link>
         </>
     )
 }
