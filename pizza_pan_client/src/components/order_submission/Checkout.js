@@ -19,9 +19,9 @@ const Checkout = ({orderItems, checkoutKey, setCheckoutKey, addToFoodCount, subt
             checkoutKey += 1;
             // changeTester();
             }
-            else console.log("I'm a drink!")
+            else {console.log("I'm a drink!")
             drinkStuff.push(order)
-            checkoutKey += 1;
+            checkoutKey += 1;}
             // changeTester();
         }
     }
@@ -56,6 +56,14 @@ const Checkout = ({orderItems, checkoutKey, setCheckoutKey, addToFoodCount, subt
         )
     });
 
+    const getPricesList = orderItems.map((item, index) => {
+        return item.price
+    })
+
+    const getTotal = function () {
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    return getPricesList.reduce(reducer);
+    }
 
     return (
         <>
@@ -64,21 +72,9 @@ const Checkout = ({orderItems, checkoutKey, setCheckoutKey, addToFoodCount, subt
         <ul className="component-list">
             {foodsToBeRenderedData}
             {drinksToBeRenderedData}
+            {getTotal()}
         </ul>
         </>
     )
-
-    
-//     return (
-//         <div>
-//             <p> Load order details here </p>
-//             <p>{orderItemsPrint(orderItems)}</p>
-
-            
-
-            
-//         </div>
-//     )
-// }
-    }
+}
 export default Checkout
