@@ -1,23 +1,21 @@
-
 import Cards from 'react-credit-cards'
 import React, { useState, setState} from 'react';
-
 import 'react-credit-cards/es/styles-compiled.css'
-
 import Request from '../../helpers/request'
-
-
+import Singleton from '../../data/UserSingleton'
 
 
 const Payment = ({state, orderItems}) => {
+    let userSingleton = Singleton.getInstance();
     const foodList = [];
     const drinkList = [];
     const request = new Request();
     const payHandler = (event) => {
+        console.log(userSingleton.user.id)
         event.preventDefault();
         // alert('Order Confirmed')
         sortFoodAndDrink();
-        request.post('api/orders', {totalPrice: 50, foods: foodList, drinks: drinkList, user: 1, foodStatus:"PREPARATION"})
+        request.post('api/orders', {totalPrice: 50, foods: foodList, drinks: drinkList, user: userSingleton.user, foodStatus:"PREPARATION"})
     }
     
     const sortFoodAndDrink = function() {

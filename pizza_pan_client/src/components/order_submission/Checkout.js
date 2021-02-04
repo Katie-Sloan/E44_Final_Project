@@ -3,18 +3,20 @@ import { Link } from 'react-router-dom'
 import FoodDetail from '.././menu/FoodDetail'
 import DrinkDetail from '../menu/DrinkDetail'
 import '../../style/checkout.css'
+import Singleton from '../../data/UserSingleton'
 
 
 const Checkout = ({orderItems, checkoutKey, setCheckoutKey, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount, changeTester}) => {
-    
+    let userSingleton = Singleton.getInstance();
     let foodStuff = [];
     let drinkStuff = [];
-
+    
     const sortItems = () => {
         
     }
-
+    
     const orderItemsPrint = function(orderItemsToPass) {
+        console.log(userSingleton)
         for (const order of orderItemsToPass) {
             if (order.cookingTime > 0) {
             console.log("wooo")
