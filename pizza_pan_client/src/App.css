@@ -71,7 +71,7 @@ img {
     }
 
 
-input{
+/* .form-item input{
 	width: 40px;
 	padding: rem .175rem;
 	font-size: 1rem;
@@ -93,5 +93,5 @@ input{
 	align-items: center;
 }
 .pay-btn:hover {
-	background-color: #b9e9d5;
-}
+	background-color: #b9e9d5; */
+/* } */
