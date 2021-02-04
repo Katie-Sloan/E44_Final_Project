@@ -76,9 +76,10 @@ const Checkout = ({orderItems, checkoutKey, setCheckoutKey, addToFoodCount, subt
         
         <ul className="checkout-component-list">
             {foodsToBeRenderedData}
-            {drinksToBeRenderedData}
-            {getTotal()}
+            {drinksToBeRenderedData}           
         </ul>
+        <h2 id="total-price">Total price: {getTotal()}</h2>
+        <br></br>
 
         <Link
             to='/payment'>

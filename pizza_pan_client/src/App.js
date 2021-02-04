@@ -1,7 +1,7 @@
 
 import './style/App.css';
 import MainContainer from './containers/MainContainer';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
 import AppHeader from './components/header/AppHeader';
 import Filter from './components/menu/Filter';
@@ -12,7 +12,19 @@ import Singleton from './data/UserSingleton'
 function App() {
   const [user, setUser] = useState({})
   let userSingleton = Singleton.getInstance();
+  const [users, setUsers] =useState({})
 
+  useEffect(() => {
+    const request = new Request();
+    request.get('api/users')
+    .then((data) => {
+      setUsers(data);
+    })
+  })
+
+
+
+// creates new user in api
      const handlePost = function(user){
         const request = new Request();
         request.post("api/users", user)
@@ -26,11 +38,17 @@ function App() {
         })        
     }
 
+    const findUserById = function(id){
+      return users.find((user) => {
+        return user.id === parseInt(id);
+      })
+    }
+
 
   return (
     <>
     <AppHeader />
-    <MainContainer user={user} setUser={setUser} onCreate={handlePost}/>
+    <MainContainer user={user} setUser={setUser} onCreate={handlePost} users={users}/>
  
     </>
   )

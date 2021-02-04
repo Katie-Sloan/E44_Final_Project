@@ -17,8 +17,8 @@ function Filter({handleChange})  {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <form id="search-bar" onSubmit={handleSubmit}>
+      <input 
         onChange={changeSearchMenu}
         type="text"
         name="searchMenu"

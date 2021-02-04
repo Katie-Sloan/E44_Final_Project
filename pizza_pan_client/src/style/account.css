@@ -3,3 +3,23 @@ form{
     display:flex;
     flex-direction: column;
 }
+#name {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#email {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#password {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#submit {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: grey;
+}
