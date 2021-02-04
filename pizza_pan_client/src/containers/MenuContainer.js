@@ -12,9 +12,10 @@ import { Link } from "react-router-dom";
 const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount, handleRouteInContentContainer}) => {
   const [foods, setFoods] = useState([]);
   const [drinks, setDrinks] = useState([]);
-  const[filteredFoods, setFilteredFoods] = useState([]);
   const[checkoutKey, setCheckoutKey] = useState(1);
   const[tester, setTester] = useState(true);
+  const[filteredFoodsAndDrinks, setFilteredFoodsAndDrinks] = useState([]);
+  const[filteredDrinks, setFilteredDrinks] = useState([]);
 
   const requestAll = function(){
     const request = new Request();
@@ -29,7 +30,7 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
     let foodAndDrinksList = [...data[0]]
     Array.prototype.push.apply(foodAndDrinksList, data[1])
 
-    setFilteredFoods(foodAndDrinksList);
+    setFilteredFoodsAndDrinks(foodAndDrinksList);
     })
   }
 
@@ -43,11 +44,18 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
 
   const filter = (searchMenu) => {
     const lowerSearch = searchMenu.toLowerCase();
-    const filteredFoods = foods.filter((food) => {
+    const filteredFoodsAndDrinks = foods.filter((food) => {
       return food.title.toLowerCase().indexOf(lowerSearch) > -1;
     });
-    setFilteredFoods(filteredFoods);
+
+    const filteredDrinks = drinks.filter((drink) => {
+      return drink.title.toLowerCase().indexOf(lowerSearch) > -1;
+    });
+    setFilteredFoodsAndDrinks(filteredFoodsAndDrinks);
+    setFilteredDrinks(filteredDrinks);
   }
+
+  
 
   const handleDelete = function(id){
     const request = new Request();
@@ -71,10 +79,12 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
           <FoodList 
           addToFoodCount={addToFoodCount}
           subtractFromFoodCount={subtractFromFoodCount}
-          foods={filteredFoods}
+          foods={filteredFoodsAndDrinks}
           />
+
+          
           <DrinkList 
-          drinks={drinks}
+          drinks={filteredDrinks}
           addToDrinkCount={addToDrinkCount}
           subtractFromDrinkCount={subtractFromDrinkCount}
           />
