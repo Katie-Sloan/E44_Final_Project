@@ -96,7 +96,7 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
           test = {test}
           setTest = {setTest}
           />
-          <Link 
+          <Link id="checkout-link"
           to="/checkout"
           orderItems={orderItems}
           key={checkoutKey}
