@@ -8,7 +8,7 @@ const DrinkDetail = ({drink, addToDrinkCount, subtractFromDrinkCount}) => {
     }
     return (
         <li>
-            <p>{drink.title} {drink.price}</p>
+            <p>{drink.title} £{drink.price}</p>
             <img src={drink.image} className="menu-item-image" alt={drink.title}></img>
             <PlusMinusDrink
             addToDrinkCount={addToDrinkCount}
