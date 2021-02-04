@@ -11,6 +11,7 @@ const Payment = ({state, orderItems}) => {
     const payHandler = (e) => {
         e.preventDefault();
         alert('Order Confirmed')
+        
     }
 
     const [number, setNumber] = useState('')

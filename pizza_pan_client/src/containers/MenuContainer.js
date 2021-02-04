@@ -12,10 +12,10 @@ import { Link } from "react-router-dom";
 const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFoodCount, subtractFromFoodCount, addToDrinkCount, subtractFromDrinkCount, handleRouteInContentContainer}) => {
   const [foods, setFoods] = useState([]);
   const [drinks, setDrinks] = useState([]);
-  const[checkoutKey, setCheckoutKey] = useState(1);
-  const[tester, setTester] = useState(true);
-  const[filteredFoodsAndDrinks, setFilteredFoodsAndDrinks] = useState([]);
-  const[filteredDrinks, setFilteredDrinks] = useState([]);
+  const [checkoutKey, setCheckoutKey] = useState(1);
+  const [tester, setTester] = useState(true);
+  const [filteredFoodsAndDrinks, setFilteredFoodsAndDrinks] = useState([]);
+  const [filteredDrinks, setFilteredDrinks] = useState([]);
 
   const requestAll = function(){
     const request = new Request();
@@ -66,7 +66,7 @@ const MenuContainer = ({orderItems, key, setOrderItems, test, setTest, addToFood
   useEffect(()=> {
     setOrderItems(orderItems);
     changeTester();
-  })
+  }, [])
 
   if(!foods){
     return null
