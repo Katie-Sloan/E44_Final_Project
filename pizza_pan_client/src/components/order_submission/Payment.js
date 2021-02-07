@@ -13,7 +13,7 @@ const Payment = ({state, orderItems}) => {
     const payHandler = (event) => {
         console.log(userSingleton.user.id)
         event.preventDefault();
-        // alert('Order Confirmed')
+        alert('Thanks for ordering from Pizza Pan!!')
         sortFoodAndDrink();
         request.post('api/orders', {totalPrice: 50, foods: foodList, drinks: drinkList, user: userSingleton.user, foodStatus:"PREPARATION"})
     }
