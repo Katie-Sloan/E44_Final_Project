@@ -6,7 +6,7 @@ An app designed for restaurant customers to make orders from the browser. Inspir
 
 The app is based in React in the front end and Java/Spring in the back end.
 
-Running instructions
+## Running instructions
 
 ### Back End
 
