@@ -8,7 +8,7 @@ The app is based in React in the front end and Java/Spring in the back end.
 
 ## How our app works
 
-[Jackson used to fetch data from API]. [A user can enter their details, which are persisted in the database.] The user then can navigate to the menu page and select items, click to checkout and edit their selection, and then finally pay for their order. Upon payment, a new order with that user attached to it is saved into the database.  
+The food and drink data is set up in the back-end of the app, using Jackson as a JSON parser. The user can enter their details into a form, which are then persisted in the database. The user then can navigate to the menu page and select items, click to checkout and edit their selection, and then finally pay for their order. Upon payment, a new order with that user attached to it is saved into the database.  
 
 ## Running instructions
 
