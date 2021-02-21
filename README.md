@@ -16,6 +16,9 @@ The quickest way to get the app up and running is to navigate to the PizzaPan di
 - "brew install maven" 
 - "mvn install"
 - "java -jar target/PizzaPan-0.0.1-SNAPSHOT.jar"
+Then go to the pizza_pan_client directory and enter: 
+- "npm install"
+- "npm start"
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 This runs the app without having to have the client side and server side open simultaneously. Alternatively, to run the app without using "brew install maven": 
