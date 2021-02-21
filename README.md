@@ -16,6 +16,7 @@ The quickest way to get the app up and running is to navigate to the PizzaPan di
 - "brew install maven" 
 - "mvn install"
 - "java -jar target/PizzaPan-0.0.1-SNAPSHOT.jar"
+
 Then go to the pizza_pan_client directory and enter: 
 - "npm install"
 - "npm start"
